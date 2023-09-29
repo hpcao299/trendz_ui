@@ -9,3 +9,15 @@ body {
 .filter-menu {
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
 }
+
+.bg-forward-btn {
+    background-repeat: no-repeat;
+    background-position: -294px -273px;
+    background-image: url(/icons.png);
+}
+
+.bg-back-btn {
+    background-repeat: no-repeat;
+    background-position: -294px -226px;
+    background-image: url(/icons.png);
+}
