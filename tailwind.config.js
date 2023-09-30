@@ -24,6 +24,7 @@ module.exports = {
                 sidebar: '335px',
                 'home-content': '630px',
                 'home-feed': '470px',
+                'feed-sidebar-width': '319px',
             },
             fontFamily: {
                 system: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,sans-serif",

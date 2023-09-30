@@ -45,36 +45,38 @@ const PostItem: React.FC = () => {
                     <IoEllipsisHorizontal size={20} />
                 </div>
             </div>
-            <Carousel
-                slidesToScroll={1}
-                dragging={false}
-                speed={300}
-                slidesToShow={1}
-                renderCenterLeftControls={({ previousSlide, previousDisabled }) => (
-                    <button
-                        className={`absolute px-2 py-4 -translate-y-1/2 top-1/2 left-0 ${
-                            previousDisabled && 'hidden'
-                        }`}
-                        onClick={previousSlide}
-                    >
-                        <div className="h-[30px] w-[30px] bg-opacity-back-btn"></div>
-                    </button>
-                )}
-                renderCenterRightControls={({ nextSlide, nextDisabled }) => (
-                    <button
-                        className={`absolute px-2 py-4 -translate-y-1/2 top-1/2 right-0 ${
-                            nextDisabled && 'hidden'
-                        }`}
-                        onClick={nextSlide}
-                    >
-                        <div className="h-[30px] w-[30px] bg-opacity-forward-btn"></div>
-                    </button>
-                )}
-            >
-                {images.map((image, i) => (
-                    <Image key={i} src={image} alt="" width={732} height={915} />
-                ))}
-            </Carousel>
+            <div className="border border-solid border-separator rounded-[4px] overflow-hidden">
+                <Carousel
+                    slidesToScroll={1}
+                    dragging={false}
+                    speed={300}
+                    slidesToShow={1}
+                    renderCenterLeftControls={({ previousSlide, previousDisabled }) => (
+                        <button
+                            className={`absolute px-2 py-4 -translate-y-1/2 top-1/2 left-0 ${
+                                previousDisabled && 'hidden'
+                            }`}
+                            onClick={previousSlide}
+                        >
+                            <div className="h-[30px] w-[30px] bg-opacity-back-btn"></div>
+                        </button>
+                    )}
+                    renderCenterRightControls={({ nextSlide, nextDisabled }) => (
+                        <button
+                            className={`absolute px-2 py-4 -translate-y-1/2 top-1/2 right-0 ${
+                                nextDisabled && 'hidden'
+                            }`}
+                            onClick={nextSlide}
+                        >
+                            <div className="h-[30px] w-[30px] bg-opacity-forward-btn"></div>
+                        </button>
+                    )}
+                >
+                    {images.map((image, i) => (
+                        <Image key={i} src={image} alt="" width={732} height={915} />
+                    ))}
+                </Carousel>
+            </div>
             <div className="flex items-center justify-between my-1 -ml-2">
                 <div className="flex items-center">
                     <button className="p-2 hover:text-grey">
