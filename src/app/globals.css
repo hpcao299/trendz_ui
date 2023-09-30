@@ -21,3 +21,23 @@ body {
     background-position: -294px -226px;
     background-image: url(/icons.png);
 }
+
+.bg-opacity-forward-btn {
+    background-repeat: no-repeat;
+    background-position: -162px -98px;
+    background-image: url(/icons2.png);
+}
+
+.bg-opacity-back-btn {
+    background-repeat: no-repeat;
+    background-position: -130px -98px;
+    background-image: url(/icons2.png);
+}
+
+.paging-item {
+    @apply mr-1;
+}
+
+.paging-item button {
+    @apply !fill-white;
+}

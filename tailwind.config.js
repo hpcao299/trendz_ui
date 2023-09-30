@@ -15,12 +15,15 @@ module.exports = {
                 pink: '#f64ff8',
                 separator: '#dbdbdb',
                 lightHover: 'rgb(0,0,0,.05)',
+                secondaryText: 'rgb(115,115,115)',
+                grey: 'rgb(142,142,142)',
             },
             spacing: {
                 0.5: '2px',
                 4.5: '18px',
                 sidebar: '335px',
-                content: '630px',
+                'home-content': '630px',
+                'home-feed': '470px',
             },
             fontFamily: {
                 system: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,sans-serif",
