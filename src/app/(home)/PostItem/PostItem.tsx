@@ -1,13 +1,16 @@
 'use client';
 
+import classNames from 'classnames';
+import { AnimatePresence, motion, useAnimationControls } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import Carousel from 'nuka-carousel';
-import React from 'react';
+import React, { useState } from 'react';
 import {
     IoBookmarkOutline,
     IoChatbubbleOutline,
     IoEllipsisHorizontal,
+    IoHeart,
     IoHeartOutline,
     IoPaperPlaneOutline,
 } from 'react-icons/io5';
@@ -18,7 +21,74 @@ const images = [
     'https://z-p4-instagram.fsgn5-9.fna.fbcdn.net/v/t39.30808-6/367394631_18050179402464350_8730014089767795299_n.jpg?stp=dst-jpg_e15_p480x480&_nc_ht=z-p4-instagram.fsgn5-9.fna.fbcdn.net&_nc_cat=102&_nc_ohc=6eDSCH-sRqIAX-FXiTW&edm=ABmJApAAAAAA&ccb=7-5&ig_cache_key=MzE2ODMwOTgxMDI5NzgyODAwMA%3D%3D.2-ccb7-5&oh=00_AfDj9dj3Rwiru3k3kgRQVfYs4TzXFQ76RXLW399hcfeKbg&oe=651AC87C&_nc_sid=b41fef',
 ];
 
+const heartIconMotion = {
+    scale: {
+        scale: [1, 1.2, 0.9, 1],
+        ease: 'easeInOut',
+        transition: {
+            duration: 0.4,
+        },
+    },
+};
+
+const heartImageMotion = {
+    initial: {
+        x: '-50%',
+        y: '-50%',
+        opacity: 0,
+    },
+    scaleIn: {
+        scale: [0, 1.2, 0.95, 1],
+        x: '-50%',
+        y: '-50%',
+        ease: 'easeInOut',
+        transition: {
+            duration: 0.4,
+        },
+    },
+    fadeIn: {
+        opacity: [0, 1],
+        ease: 'easeIn',
+        transition: {
+            duration: 0.15,
+        },
+    },
+    disappear: {
+        scale: [1, 0],
+        x: '-50%',
+        y: '-50%',
+        opacity: [1, 0],
+        ease: 'easeOut',
+        transition: {
+            delay: 0.5,
+            duration: 0.2,
+        },
+    },
+};
+
 const PostItem: React.FC = () => {
+    const controls = useAnimationControls();
+    const [isLiked, setIsLiked] = useState<boolean>(true);
+    // const [isHeartMounted, setIsHeartMounted] = useState<boolean>(true);
+
+    const handleImageClick: React.MouseEventHandler<HTMLDivElement> = async event => {
+        // If double click on image
+        if (event.detail === 2) {
+            if (!isLiked) {
+                setIsLiked(true);
+
+                controls.start('scale');
+                controls.start('fadeIn');
+                await controls.start('scaleIn');
+                await controls.start('disappear');
+            } else {
+                controls.start('fadeIn');
+                await controls.start('scaleIn');
+                await controls.start('disappear');
+            }
+        }
+    };
+
     return (
         <article className="pb-4 mb-6 border-b border-solid border-separator">
             <div className="flex items-center justify-between pb-3 pl-1">
@@ -45,7 +115,10 @@ const PostItem: React.FC = () => {
                     <IoEllipsisHorizontal size={20} />
                 </div>
             </div>
-            <div className="border border-solid border-separator rounded-[4px] overflow-hidden">
+            <div
+                onClick={handleImageClick}
+                className="relative border border-solid border-separator rounded-[4px] overflow-hidden"
+            >
                 <Carousel
                     slidesToScroll={1}
                     dragging={false}
@@ -76,11 +149,32 @@ const PostItem: React.FC = () => {
                         <Image key={i} src={image} alt="" width={732} height={915} />
                     ))}
                 </Carousel>
+                <motion.div
+                    initial="initial"
+                    animate={controls}
+                    variants={heartImageMotion}
+                    className="absolute z-10 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 text-lightWhite"
+                >
+                    <IoHeart size={100} />
+                </motion.div>
             </div>
             <div className="flex items-center justify-between my-1 -ml-2">
                 <div className="flex items-center">
-                    <button className="p-2 hover:text-grey">
-                        <IoHeartOutline size={26} />
+                    <button
+                        className={classNames('p-2', {
+                            'text-red': isLiked,
+                            'hover:text-grey': !isLiked,
+                        })}
+                        onClick={() => setIsLiked(!isLiked)}
+                    >
+                        <motion.div
+                            variants={heartIconMotion}
+                            animate={controls}
+                            onHoverEnd={() => !isLiked && controls.start('scale')}
+                            whileTap="scale"
+                        >
+                            {isLiked ? <IoHeart size={26} /> : <IoHeartOutline size={26} />}
+                        </motion.div>
                     </button>
                     <button className="p-2 hover:text-grey">
                         <IoChatbubbleOutline size={26} />

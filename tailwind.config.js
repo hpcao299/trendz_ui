@@ -17,6 +17,8 @@ module.exports = {
                 lightHover: 'rgb(0,0,0,.05)',
                 secondaryText: 'rgb(115,115,115)',
                 grey: 'rgb(142,142,142)',
+                red: 'rgb(255, 48, 64)',
+                lightWhite: 'rgba(255,255,255,.94)',
             },
             spacing: {
                 0.5: '2px',
