@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import React, { useState } from 'react';
 
 interface TooltipProps {
     title: string;
@@ -22,44 +22,32 @@ const tooltipMotion = {
 };
 
 const Tooltip: React.FC<TooltipProps> = ({ title, children }) => {
+    const [isHovered, setIsHovered] = useState<boolean>(false);
+
     return (
-        <motion.div initial="rest" whileHover="hover" animate="rest" className="relative tooltip">
+        <motion.div
+            className="relative tooltip"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
             {children}
-            <motion.div
-                variants={tooltipMotion}
-                className="absolute select-none pointer-events-none -translate-y-1/2 left-[calc(100%+16px)] top-1/2"
-            >
-                <div className="relative origin-center px-2.5 py-1 bg-white rounded-lg shadow-tooltip after:absolute after:content-[''] after:top-1/2 after:-translate-y-1/2 after:border-8 after:border-r-white after:border-transparent after:right-full">
-                    <span className="text-sm">{title}</span>
-                </div>
-            </motion.div>
+            <AnimatePresence>
+                {isHovered && (
+                    <motion.div
+                        variants={tooltipMotion}
+                        initial="rest"
+                        animate="hover"
+                        exit="rest"
+                        className="absolute select-none pointer-events-none -translate-y-1/2 left-[calc(100%+16px)] top-1/2"
+                    >
+                        <div className="relative origin-center px-2.5 py-1 bg-white rounded-lg shadow-tooltip after:absolute after:content-[''] after:top-1/2 after:-translate-y-1/2 after:border-8 after:border-r-white after:border-transparent after:right-full">
+                            <span className="text-sm">{title}</span>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </motion.div>
     );
 };
-
-// const Tooltip: React.FC<TooltipProps> = ({ title, children }) => {
-//     const [isHovered, setIsHovered] = useState<boolean>();
-
-//     return (
-//         <div
-//             className="relative tooltip group"
-//             onMouseEnter={() => setIsHovered(true)}
-//             onMouseLeave={() => setIsHovered(false)}
-//         >
-//             {children}
-//             <div className="absolute select-none pointer-events-none -translate-y-1/2 left-[calc(100%+16px)] top-1/2">
-//                 <div
-//                     className={classNames(
-//                         "relative origin-center px-2.5 py-2 opacity-0 bg-white rounded-lg shadow-tooltip after:absolute after:content-[''] after:top-1/2 after:-translate-y-1/2 after:border-8 after:border-r-white after:border-transparent after:right-full",
-//                         { 'animate-fade-in-tooltip opacity-100': isHovered },
-//                         { 'animate-fade-out-tooltip': !isHovered },
-//                     )}
-//                 >
-//                     <span className="text-sm">{title}</span>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// };
 
 export default Tooltip;
