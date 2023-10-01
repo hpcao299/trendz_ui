@@ -36,6 +36,24 @@ module.exports = {
             width: {
                 menu: '266px',
             },
+            boxShadow: {
+                tooltip: 'rgba(0, 0, 0, 0.3) 0 2px 10px',
+            },
+            animation: {
+                'fade-in-tooltip': 'fadeIn .35s ease .8s',
+                'fade-out-tooltip': 'fadeOut .5s ease',
+            },
+            keyframes: {
+                fadeIn: {
+                    '0%': { opacity: 0, transform: 'scale(0)' },
+                    '100%': { opacity: 1, transform: 'scale(1)' },
+                },
+                fadeOut: {
+                    '0%': { opacity: 1, transform: 'scale(1)' },
+                    '60%': { opacity: 0 },
+                    '100%': { opacity: 0, transform: 'scale(0)' },
+                },
+            },
         },
     },
     plugins: [],

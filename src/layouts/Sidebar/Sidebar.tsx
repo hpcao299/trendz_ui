@@ -1,3 +1,4 @@
+import { Tooltip } from '@/components';
 import config from '@/config';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -36,12 +37,14 @@ const Sidebar: React.FC = () => {
                         <IoSearchOutline className="w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]" />
                         <span className="ml-4 text-base">Search</span>
                     </li>
-                    <Link href={config.routes.explore}>
-                        <li className="group my-0.5 p-3 flex items-center hover:bg-lightHover rounded-lg duration-300 transition-colors">
-                            <IoCompassOutline className="w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]" />
-                            <span className="ml-4 text-base">Explore</span>
-                        </li>
-                    </Link>
+                    <Tooltip title="Explore">
+                        <Link href={config.routes.explore}>
+                            <li className="group my-0.5 p-3 flex items-center hover:bg-lightHover rounded-lg duration-300 transition-colors">
+                                <IoCompassOutline className="w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]" />
+                                <span className="ml-4 text-base">Explore</span>
+                            </li>
+                        </Link>
+                    </Tooltip>
                     <li className="group my-0.5 p-3 flex items-center hover:bg-lightHover rounded-lg duration-300 transition-colors cursor-pointer">
                         <IoAddCircleOutline className="w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]" />
                         <span className="ml-4 text-base">Create</span>
