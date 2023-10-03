@@ -1,67 +1,127 @@
+'use client';
+
 import { Tooltip } from '@/components';
 import config from '@/config';
+import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import {
     IoAddCircleOutline,
     IoCompassOutline,
     IoHomeOutline,
     IoSearchOutline,
 } from 'react-icons/io5';
+import Logo from './Logo';
 import Menu from './Menu';
 
 const Sidebar: React.FC = () => {
+    const [isNarrowed, setIsNarrowed] = useState<boolean>(false);
+
     return (
-        <div className="fixed top-0 bottom-0 left-0 flex flex-col pt-1 pb-5 border-r border-solid border-separator">
-            <div className="flex-1 px-3 pt-2 pb-5 w-sidebar">
-                <div className="px-3 mt-6 mb-9">
-                    <Link href={config.routes.home}>
-                        <Image
-                            src="/trendz_logo.png"
-                            alt="Trendz Logo"
-                            width={130}
-                            height={24}
-                            className="w-auto h-6"
-                        />
-                    </Link>
-                </div>
+        <div
+            className={classNames(
+                'fixed top-0 bottom-0 left-0 flex flex-col pt-1 pb-5 border-r border-solid border-separator transition-[width] duration-[400ms] ease-[ease]',
+                { 'w-sidebar': !isNarrowed, 'w-narrow-sidebar': isNarrowed },
+            )}
+        >
+            <div className="flex-1 px-3 pt-3 pb-10">
+                <Logo isNarrowed={isNarrowed} />
                 <ul>
                     <Link href={config.routes.home}>
-                        <li className="group my-0.5 p-3 flex items-center hover:bg-lightHover rounded-lg duration-300 transition-colors">
-                            <IoHomeOutline className="w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]" />
-                            <span className="ml-4 text-base">Home</span>
+                        <li
+                            className={classNames(
+                                'relative group flex items-center hover:bg-lightHover rounded-lg duration-300 transition-colors',
+                                {
+                                    'w-12 h-12 justify-center my-0.5': isNarrowed,
+                                    'p-3 my-0.5': !isNarrowed,
+                                },
+                            )}
+                        >
+                            <IoHomeOutline className="absolute left-3 top-1/2 -translate-y-1/2 w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]" />
+                            <span
+                                className={classNames('ml-10.5 text-base', {
+                                    hidden: isNarrowed,
+                                })}
+                            >
+                                Home
+                            </span>
                         </li>
                     </Link>
-                    <li className="group my-0.5 p-3 flex items-center hover:bg-lightHover rounded-lg duration-300 transition-colors cursor-pointer">
-                        <IoSearchOutline className="w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]" />
-                        <span className="ml-4 text-base">Search</span>
+                    <li
+                        onClick={() => setIsNarrowed(!isNarrowed)}
+                        className={classNames(
+                            'relative group flex items-center hover:bg-lightHover rounded-lg duration-300 transition-colors',
+                            {
+                                'w-12 h-12 justify-center my-0.5': isNarrowed,
+                                'p-3 my-0.5': !isNarrowed,
+                            },
+                        )}
+                    >
+                        <IoSearchOutline className="absolute left-3 top-1/2 -translate-y-1/2 w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]" />
+                        <span className={classNames('ml-10.5 text-base', { hidden: isNarrowed })}>
+                            Search
+                        </span>
                     </li>
                     <Tooltip title="Explore">
                         <Link href={config.routes.explore}>
-                            <li className="group my-0.5 p-3 flex items-center hover:bg-lightHover rounded-lg duration-300 transition-colors">
-                                <IoCompassOutline className="w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]" />
-                                <span className="ml-4 text-base">Explore</span>
+                            <li
+                                className={classNames(
+                                    'relative group flex items-center hover:bg-lightHover rounded-lg duration-300 transition-colors',
+                                    {
+                                        'w-12 h-12 justify-center my-0.5': isNarrowed,
+                                        'p-3 my-0.5': !isNarrowed,
+                                    },
+                                )}
+                            >
+                                <IoCompassOutline className="absolute left-3 top-1/2 -translate-y-1/2 w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]" />
+                                <span
+                                    className={classNames('ml-10.5 text-base', {
+                                        hidden: isNarrowed,
+                                    })}
+                                >
+                                    Explore
+                                </span>
                             </li>
                         </Link>
                     </Tooltip>
-                    <li className="group my-0.5 p-3 flex items-center hover:bg-lightHover rounded-lg duration-300 transition-colors cursor-pointer">
-                        <IoAddCircleOutline className="w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]" />
-                        <span className="ml-4 text-base">Create</span>
+                    <li
+                        className={classNames(
+                            'relative group flex items-center hover:bg-lightHover rounded-lg duration-300 transition-colors',
+                            {
+                                'w-12 h-12 justify-center my-0.5': isNarrowed,
+                                'p-3 my-0.5': !isNarrowed,
+                            },
+                        )}
+                    >
+                        <IoAddCircleOutline className="absolute left-3 top-1/2 -translate-y-1/2 w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]" />
+                        <span className={classNames('ml-10.5 text-base', { hidden: isNarrowed })}>
+                            Create
+                        </span>
                     </li>
-                    <li className="group my-0.5 p-3 flex items-center hover:bg-lightHover rounded-lg duration-300 transition-colors">
+                    <li
+                        className={classNames(
+                            'relative group flex items-center hover:bg-lightHover rounded-lg duration-300 transition-colors',
+                            {
+                                'w-12 h-12 justify-center my-0.5': isNarrowed,
+                                'p-3 my-0.5': !isNarrowed,
+                            },
+                        )}
+                    >
                         <Image
                             src="/example_profile.jpeg"
                             width={26}
                             height={26}
                             alt="Profile"
-                            className="rounded-full w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]"
+                            className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]"
                         />
-                        <span className="ml-4 text-base">Profile</span>
+                        <span className={classNames('ml-10.5 text-base', { hidden: isNarrowed })}>
+                            Profile
+                        </span>
                     </li>
                 </ul>
             </div>
-            <Menu />
+            <Menu isNarrowed={isNarrowed} />
         </div>
     );
 };

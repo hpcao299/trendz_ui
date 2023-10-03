@@ -23,7 +23,9 @@ module.exports = {
             spacing: {
                 0.5: '2px',
                 4.5: '18px',
+                10.5: '42px',
                 sidebar: '335px',
+                'narrow-sidebar': '72px',
                 'home-content': '630px',
                 'home-feed': '470px',
                 'feed-sidebar-width': '319px',
