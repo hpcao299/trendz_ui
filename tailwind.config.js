@@ -26,9 +26,12 @@ module.exports = {
                 10.5: '42px',
                 sidebar: '335px',
                 'narrow-sidebar': '72px',
+                'search-sidebar': '397px',
                 'home-content': '630px',
                 'home-feed': '470px',
                 'feed-sidebar-width': '319px',
+
+                'search-sidebar-left-spacing': '73px',
             },
             fontFamily: {
                 system: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,sans-serif",
@@ -42,6 +45,7 @@ module.exports = {
             },
             boxShadow: {
                 tooltip: 'rgba(0, 0, 0, 0.3) 0 2px 10px',
+                searchSidebar: '4px 0 24px rgba(0, 0, 0, .15)',
             },
             animation: {
                 'fade-in-tooltip': 'fadeIn .35s ease .8s',

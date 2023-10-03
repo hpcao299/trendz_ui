@@ -22,7 +22,7 @@ const wordLogoMotion = {
 };
 
 const iconLogoMotion = {
-    rest: { opacity: 0, scale: 0, y: '-50%', duration: 0.4, ease: 'easeIn' },
+    rest: { opacity: 0, scale: 0, y: '-50%', duration: 0.5, ease: 'easeIn' },
     appear: {
         opacity: 1,
         scale: 1,
