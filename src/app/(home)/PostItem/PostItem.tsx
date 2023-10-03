@@ -1,11 +1,11 @@
 'use client';
 
 import classNames from 'classnames';
-import { AnimatePresence, motion, useAnimationControls } from 'framer-motion';
+import { motion, useAnimationControls } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import Carousel from 'nuka-carousel';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
     IoBookmarkOutline,
     IoChatbubbleOutline,
@@ -15,11 +15,7 @@ import {
     IoPaperPlaneOutline,
 } from 'react-icons/io5';
 
-const images = [
-    'https://z-p4-instagram.fsgn5-9.fna.fbcdn.net/v/t39.30808-6/367434819_18050179387464350_6484115261302664419_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08&_nc_ht=z-p4-instagram.fsgn5-9.fna.fbcdn.net&_nc_cat=102&_nc_ohc=WHn-gqWehnIAX8Rlc0O&edm=ABmJApAAAAAA&ccb=7-5&ig_cache_key=MzE2ODMwOTgxMDM2NDgyNjU0OA%3D%3D.2-ccb7-5&oh=00_AfA4vUbUYgmhRVsNK877u0GSLS9Uy8iNB9w5S7RWvrqDVA&oe=651AEC47&_nc_sid=b41fef',
-    'https://z-p4-instagram.fsgn5-9.fna.fbcdn.net/v/t39.30808-6/367406314_18050179405464350_4330429137490543278_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08&_nc_ht=z-p4-instagram.fsgn5-9.fna.fbcdn.net&_nc_cat=102&_nc_ohc=gFtL1N9McjoAX_DU7Lu&edm=ABmJApAAAAAA&ccb=7-5&ig_cache_key=MzE2ODMwOTgxMDM1NjM5MjU3MQ%3D%3D.2-ccb7-5&oh=00_AfBGVW6CdtZ0Wh5BksmFpSetkXG5qiG7bq662AiPlxcozA&oe=651B2229&_nc_sid=b41fef',
-    'https://z-p4-instagram.fsgn5-9.fna.fbcdn.net/v/t39.30808-6/367394631_18050179402464350_8730014089767795299_n.jpg?stp=dst-jpg_e15_p480x480&_nc_ht=z-p4-instagram.fsgn5-9.fna.fbcdn.net&_nc_cat=102&_nc_ohc=6eDSCH-sRqIAX-FXiTW&edm=ABmJApAAAAAA&ccb=7-5&ig_cache_key=MzE2ODMwOTgxMDI5NzgyODAwMA%3D%3D.2-ccb7-5&oh=00_AfDj9dj3Rwiru3k3kgRQVfYs4TzXFQ76RXLW399hcfeKbg&oe=651AC87C&_nc_sid=b41fef',
-];
+const images = ['/example_post1.jpeg', '/example_post2.jpeg', '/example_post3.jpeg'];
 
 const heartIconMotion = {
     scale: {
@@ -69,10 +65,19 @@ const heartImageMotion = {
 const PostItem: React.FC = () => {
     const controls = useAnimationControls();
     const [isLiked, setIsLiked] = useState<boolean>(true);
+    const previousBtn = useRef<HTMLButtonElement>(null);
+    const nextBtn = useRef<HTMLButtonElement>(null);
     // const [isHeartMounted, setIsHeartMounted] = useState<boolean>(true);
 
     const handleImageClick: React.MouseEventHandler<HTMLDivElement> = async event => {
         // If double click on image
+        const isPreviousBtn = previousBtn.current?.contains(event.target as Node);
+        const isNextBtn = nextBtn.current?.contains(event.target as Node);
+
+        if (isPreviousBtn || isNextBtn) {
+            return;
+        }
+
         if (event.detail === 2) {
             if (!isLiked) {
                 setIsLiked(true);
@@ -119,6 +124,10 @@ const PostItem: React.FC = () => {
                 onClick={handleImageClick}
                 className="relative border border-solid border-separator rounded-[4px] overflow-hidden"
             >
+                {/* <div
+                    onClick={handleImageClick}
+                    className="absolute top-0 left-0 w-full h-full z-[5]"
+                /> */}
                 <Carousel
                     slidesToScroll={1}
                     dragging={false}
@@ -126,20 +135,22 @@ const PostItem: React.FC = () => {
                     slidesToShow={1}
                     renderCenterLeftControls={({ previousSlide, previousDisabled }) => (
                         <button
-                            className={`absolute px-2 py-4 -translate-y-1/2 top-1/2 left-0 ${
+                            className={`absolute px-2 py-4 -translate-y-1/2 top-1/2 left-0 z-10 ${
                                 previousDisabled && 'hidden'
                             }`}
                             onClick={previousSlide}
+                            ref={previousBtn}
                         >
                             <div className="h-[30px] w-[30px] bg-opacity-back-btn"></div>
                         </button>
                     )}
                     renderCenterRightControls={({ nextSlide, nextDisabled }) => (
                         <button
-                            className={`absolute px-2 py-4 -translate-y-1/2 top-1/2 right-0 ${
+                            className={`absolute px-2 py-4 -translate-y-1/2 top-1/2 right-0 z-10 ${
                                 nextDisabled && 'hidden'
                             }`}
                             onClick={nextSlide}
+                            ref={nextBtn}
                         >
                             <div className="h-[30px] w-[30px] bg-opacity-forward-btn"></div>
                         </button>
