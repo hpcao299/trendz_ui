@@ -1,24 +1,99 @@
 'use client';
 
+import classNames from 'classnames';
+import { motion, useAnimationControls } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import Carousel from 'nuka-carousel';
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import {
     IoBookmarkOutline,
     IoChatbubbleOutline,
     IoEllipsisHorizontal,
+    IoHeart,
     IoHeartOutline,
     IoPaperPlaneOutline,
 } from 'react-icons/io5';
 
-const images = [
-    'https://z-p4-instagram.fsgn5-9.fna.fbcdn.net/v/t39.30808-6/367434819_18050179387464350_6484115261302664419_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08&_nc_ht=z-p4-instagram.fsgn5-9.fna.fbcdn.net&_nc_cat=102&_nc_ohc=WHn-gqWehnIAX8Rlc0O&edm=ABmJApAAAAAA&ccb=7-5&ig_cache_key=MzE2ODMwOTgxMDM2NDgyNjU0OA%3D%3D.2-ccb7-5&oh=00_AfA4vUbUYgmhRVsNK877u0GSLS9Uy8iNB9w5S7RWvrqDVA&oe=651AEC47&_nc_sid=b41fef',
-    'https://z-p4-instagram.fsgn5-9.fna.fbcdn.net/v/t39.30808-6/367406314_18050179405464350_4330429137490543278_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08&_nc_ht=z-p4-instagram.fsgn5-9.fna.fbcdn.net&_nc_cat=102&_nc_ohc=gFtL1N9McjoAX_DU7Lu&edm=ABmJApAAAAAA&ccb=7-5&ig_cache_key=MzE2ODMwOTgxMDM1NjM5MjU3MQ%3D%3D.2-ccb7-5&oh=00_AfBGVW6CdtZ0Wh5BksmFpSetkXG5qiG7bq662AiPlxcozA&oe=651B2229&_nc_sid=b41fef',
-    'https://z-p4-instagram.fsgn5-9.fna.fbcdn.net/v/t39.30808-6/367394631_18050179402464350_8730014089767795299_n.jpg?stp=dst-jpg_e15_p480x480&_nc_ht=z-p4-instagram.fsgn5-9.fna.fbcdn.net&_nc_cat=102&_nc_ohc=6eDSCH-sRqIAX-FXiTW&edm=ABmJApAAAAAA&ccb=7-5&ig_cache_key=MzE2ODMwOTgxMDI5NzgyODAwMA%3D%3D.2-ccb7-5&oh=00_AfDj9dj3Rwiru3k3kgRQVfYs4TzXFQ76RXLW399hcfeKbg&oe=651AC87C&_nc_sid=b41fef',
-];
+const images = ['/example_post1.jpeg', '/example_post2.jpeg', '/example_post3.jpeg'];
+
+const heartIconMotion = {
+    scale: {
+        scale: [1, 1.2, 0.9, 1],
+        ease: 'easeInOut',
+        transition: {
+            duration: 0.4,
+        },
+    },
+};
+
+const heartImageMotion = {
+    initial: {
+        x: '-50%',
+        y: '-50%',
+        opacity: 0,
+    },
+    scaleIn: {
+        scale: [0, 1.2, 0.95, 1],
+        x: '-50%',
+        y: '-50%',
+        ease: 'easeInOut',
+        transition: {
+            duration: 0.4,
+        },
+    },
+    fadeIn: {
+        opacity: [0, 1],
+        ease: 'easeIn',
+        transition: {
+            duration: 0.15,
+        },
+    },
+    disappear: {
+        scale: [1, 0],
+        x: '-50%',
+        y: '-50%',
+        opacity: [1, 0],
+        ease: 'easeOut',
+        transition: {
+            delay: 0.5,
+            duration: 0.2,
+        },
+    },
+};
 
 const PostItem: React.FC = () => {
+    const controls = useAnimationControls();
+    const [isLiked, setIsLiked] = useState<boolean>(true);
+    const previousBtn = useRef<HTMLButtonElement>(null);
+    const nextBtn = useRef<HTMLButtonElement>(null);
+    // const [isHeartMounted, setIsHeartMounted] = useState<boolean>(true);
+
+    const handleImageClick: React.MouseEventHandler<HTMLDivElement> = async event => {
+        // If double click on image
+        const isPreviousBtn = previousBtn.current?.contains(event.target as Node);
+        const isNextBtn = nextBtn.current?.contains(event.target as Node);
+
+        if (isPreviousBtn || isNextBtn) {
+            return;
+        }
+
+        if (event.detail === 2) {
+            if (!isLiked) {
+                setIsLiked(true);
+
+                controls.start('scale');
+                controls.start('fadeIn');
+                await controls.start('scaleIn');
+                await controls.start('disappear');
+            } else {
+                controls.start('fadeIn');
+                await controls.start('scaleIn');
+                await controls.start('disappear');
+            }
+        }
+    };
+
     return (
         <article className="pb-4 mb-6 border-b border-solid border-separator">
             <div className="flex items-center justify-between pb-3 pl-1">
@@ -45,40 +120,72 @@ const PostItem: React.FC = () => {
                     <IoEllipsisHorizontal size={20} />
                 </div>
             </div>
-            <Carousel
-                slidesToScroll={1}
-                dragging={false}
-                speed={300}
-                slidesToShow={1}
-                renderCenterLeftControls={({ previousSlide, previousDisabled }) => (
-                    <button
-                        className={`absolute px-2 py-4 -translate-y-1/2 top-1/2 left-0 ${
-                            previousDisabled && 'hidden'
-                        }`}
-                        onClick={previousSlide}
-                    >
-                        <div className="h-[30px] w-[30px] bg-opacity-back-btn"></div>
-                    </button>
-                )}
-                renderCenterRightControls={({ nextSlide, nextDisabled }) => (
-                    <button
-                        className={`absolute px-2 py-4 -translate-y-1/2 top-1/2 right-0 ${
-                            nextDisabled && 'hidden'
-                        }`}
-                        onClick={nextSlide}
-                    >
-                        <div className="h-[30px] w-[30px] bg-opacity-forward-btn"></div>
-                    </button>
-                )}
+            <div
+                onClick={handleImageClick}
+                className="relative border border-solid border-separator rounded-[4px] overflow-hidden"
             >
-                {images.map((image, i) => (
-                    <Image key={i} src={image} alt="" width={732} height={915} />
-                ))}
-            </Carousel>
+                {/* <div
+                    onClick={handleImageClick}
+                    className="absolute top-0 left-0 w-full h-full z-[5]"
+                /> */}
+                <Carousel
+                    slidesToScroll={1}
+                    dragging={false}
+                    speed={300}
+                    slidesToShow={1}
+                    renderCenterLeftControls={({ previousSlide, previousDisabled }) => (
+                        <button
+                            className={`absolute px-2 py-4 -translate-y-1/2 top-1/2 left-0 z-10 ${
+                                previousDisabled && 'hidden'
+                            }`}
+                            onClick={previousSlide}
+                            ref={previousBtn}
+                        >
+                            <div className="h-[30px] w-[30px] bg-opacity-back-btn"></div>
+                        </button>
+                    )}
+                    renderCenterRightControls={({ nextSlide, nextDisabled }) => (
+                        <button
+                            className={`absolute px-2 py-4 -translate-y-1/2 top-1/2 right-0 z-10 ${
+                                nextDisabled && 'hidden'
+                            }`}
+                            onClick={nextSlide}
+                            ref={nextBtn}
+                        >
+                            <div className="h-[30px] w-[30px] bg-opacity-forward-btn"></div>
+                        </button>
+                    )}
+                >
+                    {images.map((image, i) => (
+                        <Image key={i} src={image} alt="" width={732} height={915} />
+                    ))}
+                </Carousel>
+                <motion.div
+                    initial="initial"
+                    animate={controls}
+                    variants={heartImageMotion}
+                    className="absolute z-10 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 text-lightWhite"
+                >
+                    <IoHeart size={100} />
+                </motion.div>
+            </div>
             <div className="flex items-center justify-between my-1 -ml-2">
                 <div className="flex items-center">
-                    <button className="p-2 hover:text-grey">
-                        <IoHeartOutline size={26} />
+                    <button
+                        className={classNames('p-2', {
+                            'text-red': isLiked,
+                            'hover:text-grey': !isLiked,
+                        })}
+                        onClick={() => setIsLiked(!isLiked)}
+                    >
+                        <motion.div
+                            variants={heartIconMotion}
+                            animate={controls}
+                            onHoverEnd={() => !isLiked && controls.start('scale')}
+                            whileTap="scale"
+                        >
+                            {isLiked ? <IoHeart size={26} /> : <IoHeartOutline size={26} />}
+                        </motion.div>
                     </button>
                     <button className="p-2 hover:text-grey">
                         <IoChatbubbleOutline size={26} />

@@ -6,7 +6,11 @@ import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 import { IoMenu, IoMenuOutline, IoSettingsOutline, IoSunnyOutline } from 'react-icons/io5';
 
-const Menu: React.FC = () => {
+interface MenuProps {
+    isNarrowed?: boolean;
+}
+
+const Menu: React.FC<MenuProps> = ({ isNarrowed }) => {
     const [open, setOpen] = useState<boolean>(false);
     const modalRef = useRef<HTMLDivElement>(null);
 
@@ -31,15 +35,26 @@ const Menu: React.FC = () => {
         <div className="px-3 select-none">
             <div className="relative">
                 <div
-                    className="flex items-center p-3 transition-colors duration-300 rounded-lg cursor-pointer group hover:bg-lightHover"
+                    className={classNames(
+                        'relative group flex items-center hover:bg-lightHover rounded-lg duration-300 transition-colors',
+                        {
+                            'w-12 h-12 justify-center my-0.5': isNarrowed,
+                            'p-3 my-0.5': !isNarrowed,
+                        },
+                    )}
                     onClick={() => setOpen(!open)}
                 >
                     {open ? (
-                        <IoMenu className="w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]" />
+                        <IoMenu className="absolute left-3 top-1/2 -translate-y-1/2 w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]" />
                     ) : (
-                        <IoMenuOutline className="w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]" />
+                        <IoMenuOutline className="absolute left-3 top-1/2 -translate-y-1/2 w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]" />
                     )}
-                    <span className={classNames('ml-4 text-base', { 'font-bold': open })}>
+                    <span
+                        className={classNames('ml-10.5 text-base', {
+                            'font-bold': open,
+                            hidden: isNarrowed,
+                        })}
+                    >
                         Menu
                     </span>
                 </div>

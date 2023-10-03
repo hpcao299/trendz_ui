@@ -1,3 +1,4 @@
+import FeedSidebar from './FeedSidebar';
 import PostItem from './PostItem';
 import Stories from './Stories';
 
@@ -15,6 +16,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <FeedSidebar />
         </div>
     );
 };
