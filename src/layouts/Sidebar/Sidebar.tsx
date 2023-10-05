@@ -19,6 +19,10 @@ import SearchSidebar from './SearchSidebar';
 const Sidebar: React.FC = () => {
     const [isNarrowed, setIsNarrowed] = useState<boolean>(false);
 
+    const handleCloseSubSidebar = () => {
+        setIsNarrowed(false);
+    };
+
     return (
         <>
             <div
@@ -59,6 +63,7 @@ const Sidebar: React.FC = () => {
                                     'p-3 my-0.5': !isNarrowed,
                                 },
                             )}
+                            role="button"
                         >
                             <IoSearchOutline className="absolute left-3 top-1/2 -translate-y-1/2 w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]" />
                             <span
@@ -131,7 +136,7 @@ const Sidebar: React.FC = () => {
                 </div>
                 <Menu isNarrowed={isNarrowed} />
             </div>
-            <SearchSidebar isNarrowed={isNarrowed} />
+            <SearchSidebar isNarrowed={isNarrowed} handleClose={handleCloseSubSidebar} />
         </>
     );
 };

@@ -64,7 +64,7 @@ const Logo: React.FC<LogoProps> = ({ isNarrowed }) => {
                         </motion.div>
                     )}
                 </AnimatePresence>
-                <AnimatePresence>
+                <AnimatePresence initial={false}>
                     {!isNarrowed && (
                         <motion.div
                             variants={wordLogoMotion}

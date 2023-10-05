@@ -1,11 +1,12 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { IoCloseOutline } from 'react-icons/io5';
 
 interface SearchSidebarProps {
     isNarrowed: boolean;
+    handleClose: () => void;
 }
 
 const searchSidebarMotion = {
@@ -19,7 +20,26 @@ const searchSidebarMotion = {
     },
 };
 
-const SearchSidebar: React.FC<SearchSidebarProps> = ({ isNarrowed }) => {
+const SearchSidebar: React.FC<SearchSidebarProps> = ({ isNarrowed, handleClose }) => {
+    const wrapper = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleClickOutside = (e: MouseEvent) => {
+            // if click outside the sidebar
+            if (!wrapper.current?.contains(e.target as Node)) {
+                handleClose();
+            }
+        };
+
+        if (isNarrowed) {
+            document.addEventListener('click', handleClickOutside);
+        } else {
+            document.removeEventListener('click', handleClickOutside);
+        }
+
+        return () => document.removeEventListener('click', handleClickOutside);
+    }, [isNarrowed, handleClose]);
+
     return (
         <AnimatePresence>
             {isNarrowed && (
@@ -29,6 +49,7 @@ const SearchSidebar: React.FC<SearchSidebarProps> = ({ isNarrowed }) => {
                     animate="slideIn"
                     exit="rest"
                     className="fixed top-0 z-30 h-screen py-2 overflow-y-auto bg-white border-r border-solid w-search-sidebar shadow-searchSidebar left-search-sidebar-left-spacing border-separator rounded-r-2xl"
+                    ref={wrapper}
                 >
                     <div className="pl-6 pt-3 pr-[14px] pb-9 text-2xl font-semibold">Search</div>
                     <div className="mx-4 mb-6">
