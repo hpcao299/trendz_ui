@@ -2,10 +2,11 @@
 
 import { Tooltip } from '@/components';
 import config from '@/config';
+import { useLayoutStore } from '@/stores';
 import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import {
     IoAddCircle,
     IoAddCircleOutline,
@@ -21,13 +22,9 @@ import Menu from './Menu';
 import SearchSidebar from './SearchSidebar';
 
 const Sidebar: React.FC = () => {
-    const [isNarrowed, setIsNarrowed] = useState<boolean>(false);
-    const [activeLinkIndex, setActiveLinkIndex] = useState<number>(0);
-    // const previousLinkIndex = useRef<number>();
-
-    const handleCloseSubSidebar = useCallback(() => {
-        setIsNarrowed(false);
-    }, [setIsNarrowed]);
+    const [{ isNarrowed, activeLinkIndex }, setIsNarrowed, setActiveLinkIndex] = useLayoutStore(
+        state => [state.sidebar, state.setIsNarrowed, state.setActiveLinkIndex],
+    );
 
     const links = useMemo(
         () => [
@@ -81,7 +78,7 @@ const Sidebar: React.FC = () => {
                 )}
             >
                 <div className="flex-1 px-3 pt-3 pb-10">
-                    <Logo isNarrowed={isNarrowed} />
+                    <Logo />
                     <ul>
                         {links.map((link, i) => {
                             const isActive = activeLinkIndex === i;
@@ -165,9 +162,9 @@ const Sidebar: React.FC = () => {
                         })}
                     </ul>
                 </div>
-                <Menu isNarrowed={isNarrowed} />
+                <Menu />
             </div>
-            <SearchSidebar isNarrowed={isNarrowed} handleClose={handleCloseSubSidebar} />
+            <SearchSidebar />
         </>
     );
 };

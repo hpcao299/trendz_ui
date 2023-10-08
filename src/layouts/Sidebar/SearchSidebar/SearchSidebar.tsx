@@ -1,13 +1,9 @@
+import { useLayoutStore } from '@/stores';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useRef } from 'react';
 import { IoCloseOutline } from 'react-icons/io5';
-
-interface SearchSidebarProps {
-    isNarrowed: boolean;
-    handleClose: () => void;
-}
 
 const searchSidebarMotion = {
     rest: { x: '-100%', transition: { duration: 0.3, ease: 'easeIn' } },
@@ -20,14 +16,18 @@ const searchSidebarMotion = {
     },
 };
 
-const SearchSidebar: React.FC<SearchSidebarProps> = ({ isNarrowed, handleClose }) => {
+const SearchSidebar: React.FC = () => {
+    const [isNarrowed, setIsNarrowed] = useLayoutStore(state => [
+        state.sidebar.isNarrowed,
+        state.setIsNarrowed,
+    ]);
     const wrapper = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
             // if click outside the sidebar
             if (!wrapper.current?.contains(e.target as Node)) {
-                handleClose();
+                setIsNarrowed(false);
             }
         };
 
@@ -38,7 +38,7 @@ const SearchSidebar: React.FC<SearchSidebarProps> = ({ isNarrowed, handleClose }
         }
 
         return () => document.removeEventListener('click', handleClickOutside);
-    }, [isNarrowed, handleClose]);
+    }, [isNarrowed]);
 
     return (
         <AnimatePresence>

@@ -1,13 +1,10 @@
 import config from '@/config';
+import { useLayoutStore } from '@/stores';
 import classNames from 'classnames';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-
-interface LogoProps {
-    isNarrowed: boolean;
-}
 
 const wordLogoMotion = {
     rest: { opacity: 0, duration: 0.2, ease: 'easeIn' },
@@ -35,7 +32,9 @@ const iconLogoMotion = {
     },
 };
 
-const Logo: React.FC<LogoProps> = ({ isNarrowed }) => {
+const Logo: React.FC = () => {
+    const isNarrowed = useLayoutStore(state => state.sidebar.isNarrowed);
+
     return (
         <div
             className={classNames('relative mb-9 mt-6', {

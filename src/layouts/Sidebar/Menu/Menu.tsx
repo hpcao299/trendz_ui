@@ -1,16 +1,14 @@
 'use client';
 
 import config from '@/config';
+import { useLayoutStore } from '@/stores';
 import classNames from 'classnames';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 import { IoMenu, IoMenuOutline, IoSettingsOutline, IoSunnyOutline } from 'react-icons/io5';
 
-interface MenuProps {
-    isNarrowed?: boolean;
-}
-
-const Menu: React.FC<MenuProps> = ({ isNarrowed }) => {
+const Menu: React.FC = () => {
+    const isNarrowed = useLayoutStore(state => state.sidebar.isNarrowed);
     const [open, setOpen] = useState<boolean>(false);
     const modalRef = useRef<HTMLDivElement>(null);
 
