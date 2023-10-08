@@ -1,6 +1,9 @@
 import { Sidebar } from '@/layouts';
 import type { Metadata } from 'next';
 import './globals.css';
+import dynamic from 'next/dynamic';
+
+const Modal = dynamic(() => import('@/layouts/Modal'));
 
 export const metadata: Metadata = {
     title: 'Create Next App',
@@ -13,6 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body>
                 <Sidebar />
                 <main className="ml-sidebar">{children}</main>
+                <Modal />
             </body>
         </html>
     );
