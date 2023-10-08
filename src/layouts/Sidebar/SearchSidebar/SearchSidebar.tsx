@@ -12,7 +12,7 @@ interface SearchSidebarProps {
 const searchSidebarMotion = {
     rest: { x: '-100%', transition: { duration: 0.3, ease: 'easeIn' } },
     slideIn: {
-        x: '0',
+        x: 0,
         transition: {
             duration: 0.5,
             ease: 'easeInOut',
