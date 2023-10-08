@@ -4,12 +4,21 @@ import { useLayoutStore } from '@/stores';
 import React from 'react';
 
 const CreateModal: React.FC = () => {
-    const hideModal = useLayoutStore(state => state.hideModal);
+    const [backwardLinkIndex, hideModal] = useLayoutStore(state => [
+        state.backwardLinkIndex,
+        state.hideModal,
+    ]);
+
+    const handleCloseModal = () => {
+        backwardLinkIndex();
+        hideModal();
+    };
 
     return (
         <div
-            onClick={() => hideModal()}
-            className="fixed top-0 bottom-0 left-0 right-0 z-50 bg-black"
+            onClick={handleCloseModal}
+            // z-50
+            className="fixed top-0 bottom-0 left-0 right-0 bg-black"
         >
             CreateModal
         </div>

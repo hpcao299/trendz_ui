@@ -17,9 +17,10 @@ const searchSidebarMotion = {
 };
 
 const SearchSidebar: React.FC = () => {
-    const [isNarrowed, setIsNarrowed] = useLayoutStore(state => [
+    const [isNarrowed, setIsNarrowed, backwardLinkIndex] = useLayoutStore(state => [
         state.sidebar.isNarrowed,
         state.setIsNarrowed,
+        state.backwardLinkIndex,
     ]);
     const wrapper = useRef<HTMLDivElement>(null);
 
@@ -28,6 +29,7 @@ const SearchSidebar: React.FC = () => {
             // if click outside the sidebar
             if (!wrapper.current?.contains(e.target as Node)) {
                 setIsNarrowed(false);
+                backwardLinkIndex();
             }
         };
 

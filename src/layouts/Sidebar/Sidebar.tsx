@@ -22,13 +22,19 @@ import Menu from './Menu';
 import SearchSidebar from './SearchSidebar';
 
 const Sidebar: React.FC = () => {
-    const [{ isNarrowed, activeLinkIndex }, setIsNarrowed, setActiveLinkIndex, showModal] =
-        useLayoutStore(state => [
-            state.sidebar,
-            state.setIsNarrowed,
-            state.setActiveLinkIndex,
-            state.showModal,
-        ]);
+    const [
+        { isNarrowed, activeLinkIndex },
+        setIsNarrowed,
+        setActiveLinkIndex,
+        setPreviousLinkIndex,
+        showModal,
+    ] = useLayoutStore(state => [
+        state.sidebar,
+        state.setIsNarrowed,
+        state.setActiveLinkIndex,
+        state.setPreviousLinkIndex,
+        state.showModal,
+    ]);
 
     const links = useMemo(
         () => [
@@ -100,7 +106,7 @@ const Sidebar: React.FC = () => {
                                             if (typeof link.onClick === 'function') {
                                                 link.onClick(e);
                                             }
-                                            // previousLinkIndex.current = activeLinkIndex;
+                                            setPreviousLinkIndex(activeLinkIndex);
                                             setActiveLinkIndex(i);
                                         }}
                                     >

@@ -20,6 +20,7 @@ interface Actions {
     setIsNarrowed(isNarrowed: boolean): void;
     setActiveLinkIndex(index: number): void;
     setPreviousLinkIndex(index: number): void;
+    backwardLinkIndex(): void;
 
     // Modal actions
     showModal(type: ModalType, props?: any): void;
@@ -50,6 +51,11 @@ const useLayoutStore = create<State & Actions>(set => ({
     setPreviousLinkIndex(index) {
         set(state => ({
             sidebar: { ...state.sidebar, previousLinkIndex: index },
+        }));
+    },
+    backwardLinkIndex() {
+        set(state => ({
+            sidebar: { ...state.sidebar, activeLinkIndex: state.sidebar.previousLinkIndex },
         }));
     },
     showModal(type, props) {
