@@ -19,6 +19,8 @@ module.exports = {
                 grey: 'rgb(142,142,142)',
                 red: 'rgb(255, 48, 64)',
                 lightWhite: 'rgba(255,255,255,.94)',
+                btnHover: 'rgb(219, 219, 219)',
+                btnBackground: 'rgb(239, 239, 239)',
             },
             spacing: {
                 0.5: '2px',

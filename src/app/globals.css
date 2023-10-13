@@ -34,6 +34,12 @@ body {
     background-image: url(/icons2.png);
 }
 
+.bg-photo {
+    background-repeat: no-repeat;
+    background-position: -128px -269px;
+    background-image: url(/icons2.png);
+}
+
 .paging-item {
     @apply mr-1;
 }
