@@ -32,6 +32,7 @@ module.exports = {
                 'home-content': '630px',
                 'home-feed': '470px',
                 'feed-sidebar-width': '319px',
+                'setting-sidebar-width': '315px',
 
                 'search-sidebar-left-spacing': '73px',
             },

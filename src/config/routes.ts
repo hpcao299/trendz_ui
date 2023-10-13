@@ -4,6 +4,7 @@ const routes = {
     settings: '/settings',
 
     accountEdit: '/accounts/edit',
+    langPreferences: '/language/preferences',
 };
 
 export default routes;
