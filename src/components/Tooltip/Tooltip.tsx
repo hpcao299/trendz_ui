@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 interface TooltipProps {
     title: string;
     children?: React.ReactNode;
+    isAvailable?: boolean;
 }
 
 const tooltipMotion = {
@@ -21,32 +22,34 @@ const tooltipMotion = {
     },
 };
 
-const Tooltip: React.FC<TooltipProps> = ({ title, children }) => {
+const Tooltip: React.FC<TooltipProps> = ({ title, children, isAvailable = true }) => {
     const [isHovered, setIsHovered] = useState<boolean>(false);
 
     return (
-        <motion.div
+        <div
             className="relative tooltip"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
             {children}
-            <AnimatePresence>
-                {isHovered && (
-                    <motion.div
-                        variants={tooltipMotion}
-                        initial="rest"
-                        animate="hover"
-                        exit="rest"
-                        className="absolute select-none pointer-events-none -translate-y-1/2 left-[calc(100%+16px)] top-1/2"
-                    >
-                        <div className="relative origin-center px-2.5 py-1 bg-white rounded-lg shadow-tooltip after:absolute after:content-[''] after:top-1/2 after:-translate-y-1/2 after:border-8 after:border-r-white after:border-transparent after:right-full">
-                            <span className="text-sm">{title}</span>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </motion.div>
+            {isAvailable && (
+                <AnimatePresence>
+                    {isHovered && (
+                        <motion.div
+                            variants={tooltipMotion}
+                            initial="rest"
+                            animate="hover"
+                            exit="rest"
+                            className="absolute select-none pointer-events-none -translate-y-1/2 left-[calc(100%+16px)] top-1/2"
+                        >
+                            <div className="relative origin-center px-2.5 py-1 bg-white rounded-lg shadow-tooltip after:absolute after:content-[''] after:top-1/2 after:-translate-y-1/2 after:border-8 after:border-r-white after:border-transparent after:right-full whitespace-nowrap">
+                                <span className="text-sm">{title}</span>
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            )}
+        </div>
     );
 };
 

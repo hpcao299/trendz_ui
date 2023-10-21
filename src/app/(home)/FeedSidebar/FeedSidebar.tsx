@@ -81,7 +81,7 @@ const FeedSidebar: React.FC = () => {
                     </li>
                 </ul>
                 <div className="uppercase text-xs text-[rgb(199,199,199)] mt-4">
-                    © {new Date().getFullYear()} TRENDZ FROM JACK CAO
+                    © 2023 TRENDZ FROM JACK CAO
                 </div>
             </div>
         </div>

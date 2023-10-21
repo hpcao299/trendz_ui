@@ -1,8 +1,9 @@
+import { NextPage } from 'next';
 import FeedSidebar from './FeedSidebar';
 import PostItem from './PostItem';
 import Stories from './Stories';
 
-const Home = () => {
+const Home: NextPage = () => {
     return (
         <div className="pt-[22px] flex justify-center">
             <div className="pb-20 w-home-content">

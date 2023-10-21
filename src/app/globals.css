@@ -34,10 +34,28 @@ body {
     background-image: url(/icons2.png);
 }
 
+.bg-photo {
+    background-repeat: no-repeat;
+    background-position: -128px -269px;
+    background-image: url(/icons2.png);
+}
+
 .paging-item {
     @apply mr-1;
 }
 
 .paging-item button {
     @apply !fill-white;
+}
+
+input:disabled {
+    @apply cursor-not-allowed bg-btnBackground border-separator text-secondaryText;
+}
+
+button:disabled {
+    @apply pointer-events-none opacity-30;
+}
+
+.setting-content {
+    @apply py-9 min-h-with-copyright-footer;
 }

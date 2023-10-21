@@ -19,6 +19,11 @@ module.exports = {
                 grey: 'rgb(142,142,142)',
                 red: 'rgb(255, 48, 64)',
                 lightWhite: 'rgba(255,255,255,.94)',
+                btnHover: 'rgb(219, 219, 219)',
+                btnBackground: 'rgb(239, 239, 239)',
+            },
+            minHeight: {
+                'with-copyright-footer': 'calc(100vh - 65px)',
             },
             spacing: {
                 0.5: '2px',
@@ -30,6 +35,7 @@ module.exports = {
                 'home-content': '630px',
                 'home-feed': '470px',
                 'feed-sidebar-width': '319px',
+                'setting-sidebar-width': '315px',
 
                 'search-sidebar-left-spacing': '73px',
             },
