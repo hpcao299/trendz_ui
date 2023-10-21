@@ -62,7 +62,7 @@ const Menu: React.FC = () => {
                         ref={modalRef}
                         className="absolute left-0 z-10 p-2 bg-white bottom-full filter-menu rounded-2xl w-menu"
                     >
-                        <Link href={config.routes.settings}>
+                        <Link href={config.routes.accountEdit}>
                             <div className="flex items-center p-4 text-sm transition-opacity duration-100 rounded-lg hover:bg-lightHover ease-hover">
                                 <IoSettingsOutline className="w-5 h-5" />
                                 <span className="ml-3">Settings</span>

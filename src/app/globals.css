@@ -47,3 +47,11 @@ body {
 .paging-item button {
     @apply !fill-white;
 }
+
+input:disabled {
+    @apply cursor-not-allowed bg-btnBackground border-separator text-secondaryText;
+}
+
+button:disabled {
+    @apply pointer-events-none opacity-30;
+}
