@@ -5,7 +5,7 @@ import React from 'react';
 const AccountEditPage = () => {
     return (
         <>
-            <div className="py-9 min-h-with-copyright-footer">
+            <div className="setting-content">
                 <div className="mt-8 mb-6 text-2xl ml-11">Edit profile</div>
                 <div className="mt-8">
                     <div className="ml-[194px] relative">
@@ -62,6 +62,7 @@ const AccountEditPage = () => {
                                         id="bio"
                                         placeholder="Bio"
                                         className="border border-solid px-2.5 py-1.5 h-8 text-base border-btnHover rounded-sm w-full min-h-[60px]"
+                                        autoComplete="false"
                                     ></textarea>
                                     <div className="text-xs text-secondaryText">3 / 150</div>
                                 </div>
