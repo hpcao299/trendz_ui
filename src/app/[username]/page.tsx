@@ -79,9 +79,7 @@ const ProfilePage: NextPage<ProfilePageProps> = ({ params }) => {
                 </div>
             </div>
             <footer className="flex items-center justify-center mt-auto mb-12">
-                <span className="text-xs text-secondaryText">
-                    © {new Date().getFullYear()} Trendz from Jack Cao
-                </span>
+                <span className="text-xs text-secondaryText">© 2023 Trendz from Jack Cao</span>
             </footer>
         </div>
     );

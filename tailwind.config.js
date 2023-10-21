@@ -22,6 +22,9 @@ module.exports = {
                 btnHover: 'rgb(219, 219, 219)',
                 btnBackground: 'rgb(239, 239, 239)',
             },
+            minHeight: {
+                'with-copyright-footer': 'calc(100vh - 65px)',
+            },
             spacing: {
                 0.5: '2px',
                 4.5: '18px',
