@@ -6,7 +6,7 @@ const AccountEditPage = () => {
     return (
         <>
             <div className="setting-content">
-                <div className="mt-8 mb-6 text-2xl ml-11">Edit profile</div>
+                <div className="mt-8 mb-6 ml-12 text-2xl">Edit profile</div>
                 <div className="mt-8">
                     <div className="ml-[194px] relative">
                         <Image
