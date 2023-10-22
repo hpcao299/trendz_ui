@@ -1,6 +1,7 @@
 import { Sidebar } from '@/layouts';
 import type { Metadata } from 'next';
 import './globals.css';
+import './components.css';
 import dynamic from 'next/dynamic';
 
 const Modal = dynamic(() => import('@/layouts/Modal'));

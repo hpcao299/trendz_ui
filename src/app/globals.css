@@ -52,10 +52,6 @@ input:disabled {
     @apply cursor-not-allowed bg-btnBackground border-separator text-secondaryText;
 }
 
-button:disabled {
-    @apply pointer-events-none opacity-30;
-}
-
 .setting-content {
     @apply py-9 min-h-with-copyright-footer;
 }

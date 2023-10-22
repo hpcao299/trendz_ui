@@ -12,6 +12,7 @@ module.exports = {
         extend: {
             colors: {
                 primary: '#4274fe',
+                darkPrimary: '#2e5cb3',
                 pink: '#f64ff8',
                 separator: '#dbdbdb',
                 lightHover: 'rgb(0,0,0,.05)',
@@ -56,6 +57,7 @@ module.exports = {
             animation: {
                 'fade-in-tooltip': 'fadeIn .35s ease .8s',
                 'fade-out-tooltip': 'fadeOut .5s ease',
+                'scale-small': 'scaleSmall .2s ease',
             },
             keyframes: {
                 fadeIn: {
@@ -66,6 +68,10 @@ module.exports = {
                     '0%': { opacity: 1, transform: 'scale(1)' },
                     '60%': { opacity: 0 },
                     '100%': { opacity: 0, transform: 'scale(0)' },
+                },
+                scaleSmall: {
+                    '0%': { transform: 'scale(1.08)' },
+                    '100%': { transform: 'scale(1)' },
                 },
             },
         },

@@ -92,11 +92,7 @@ const AccountEditPage = () => {
                         <aside className="px-8 flex-[0_0_194px]"></aside>
                         <div className="flex-1 pr-[60px]">
                             <div className="max-w-[355px]">
-                                <button
-                                    disabled
-                                    type="submit"
-                                    className="h-8 px-4 text-sm font-semibold text-white rounded-lg bg-primary hover:opacity-80"
-                                >
+                                <button disabled type="submit" className="btn-sm btn-primary">
                                     Submit
                                 </button>
                             </div>
