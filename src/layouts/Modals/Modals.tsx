@@ -2,8 +2,8 @@
 
 import { useLayoutStore } from '@/stores';
 import React, { useEffect, useRef } from 'react';
-import CreateModal from './CreateModal';
 import FollowAccountModal from './FollowAccountModal';
+import CreateModal from './CreateModal';
 
 const Modal: React.FC = () => {
     const [{ isVisible, modalType, modalProps }, hideModal] = useLayoutStore(state => [

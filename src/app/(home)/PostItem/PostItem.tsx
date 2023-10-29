@@ -1,31 +1,14 @@
 'use client';
 
-import classNames from 'classnames';
+import { PostActions } from '@/components';
 import { motion, useAnimationControls } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import Carousel from 'nuka-carousel';
 import React, { useRef, useState } from 'react';
-import {
-    IoBookmarkOutline,
-    IoChatbubbleOutline,
-    IoEllipsisHorizontal,
-    IoHeart,
-    IoHeartOutline,
-    IoPaperPlaneOutline,
-} from 'react-icons/io5';
+import { IoEllipsisHorizontal, IoHeart } from 'react-icons/io5';
 
 const images = ['/example_post1.jpeg', '/example_post2.jpeg', '/example_post3.jpeg'];
-
-const heartIconMotion = {
-    scale: {
-        scale: [1, 1.2, 0.9, 1],
-        ease: 'easeInOut',
-        transition: {
-            duration: 0.4,
-        },
-    },
-};
 
 const heartImageMotion = {
     initial: {
@@ -124,10 +107,6 @@ const PostItem: React.FC = () => {
                 onClick={handleImageClick}
                 className="relative border border-solid border-separator rounded-[4px] overflow-hidden"
             >
-                {/* <div
-                    onClick={handleImageClick}
-                    className="absolute top-0 left-0 w-full h-full z-[5]"
-                /> */}
                 <Carousel
                     slidesToScroll={1}
                     dragging={false}
@@ -169,36 +148,12 @@ const PostItem: React.FC = () => {
                     <IoHeart size={100} />
                 </motion.div>
             </div>
-            <div className="flex items-center justify-between my-1 -ml-2">
-                <div className="flex items-center">
-                    <button
-                        className={classNames('p-2', {
-                            'text-red': isLiked,
-                            'hover:text-grey': !isLiked,
-                        })}
-                        onClick={() => setIsLiked(!isLiked)}
-                    >
-                        <motion.div
-                            variants={heartIconMotion}
-                            animate={controls}
-                            onHoverEnd={() => !isLiked && controls.start('scale')}
-                            whileTap="scale"
-                        >
-                            {isLiked ? <IoHeart size={26} /> : <IoHeartOutline size={26} />}
-                        </motion.div>
-                    </button>
-                    <button className="p-2 hover:text-grey">
-                        <IoChatbubbleOutline size={26} />
-                    </button>
-                    <button className="p-2 hover:text-grey">
-                        <IoPaperPlaneOutline size={26} />
-                    </button>
-                </div>
-                <div>
-                    <button className="hover:text-grey">
-                        <IoBookmarkOutline size={26} />
-                    </button>
-                </div>
+            <div className="my-1 -ml-2">
+                <PostActions
+                    isLiked={isLiked}
+                    handleToggleLiked={() => setIsLiked(!isLiked)}
+                    controls={controls}
+                />
             </div>
             <div className="text-sm font-semibold">16 likes</div>
             <div className="mt-2 text-sm">

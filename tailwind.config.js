@@ -23,6 +23,9 @@ module.exports = {
                 btnHover: 'rgb(219, 219, 219)',
                 btnBackground: 'rgb(239, 239, 239)',
             },
+            maxWidth: {
+                'post-modal': 'calc(100% - 64px - 64px)',
+            },
             minHeight: {
                 'with-copyright-footer': 'calc(100vh - 65px)',
             },
