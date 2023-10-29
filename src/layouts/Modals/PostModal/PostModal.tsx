@@ -1,4 +1,4 @@
-import { PostActions } from '@/components';
+import { PostActions, PostCommentInput } from '@/components';
 import { useLayoutStore } from '@/stores';
 import { useAnimationControls } from 'framer-motion';
 import Image from 'next/image';
@@ -13,13 +13,8 @@ const PostModal: React.FC = () => {
     const controls = useAnimationControls();
     // const searchParams = useSearchParams();
 
-    const handleTypeComment: React.ChangeEventHandler<HTMLTextAreaElement> = e => {
-        setCommentText(e.target.value);
-
-        // max height of auto resizing textarea element is 80px
-        const maxHeight = 80;
-        e.target.style.height = 'auto';
-        e.target.style.height = Math.min(e.target.scrollHeight, maxHeight) + 'px';
+    const handleTypeComment = (value: string) => {
+        setCommentText(value);
     };
 
     // TODO: fix right side of post modal width
@@ -177,13 +172,13 @@ const PostModal: React.FC = () => {
                         <button className="px-4 py-2 text-black" type="button">
                             <IoHappyOutline size={24} />
                         </button>
-                        <textarea
+                        <PostCommentInput
+                            onChange={handleTypeComment}
+                            value={commentText}
                             autoComplete="off"
                             autoCorrect="off"
                             placeholder="Add a comment..."
-                            className="flex-1 resize-none text-sm leading-[18px] outline-none h-4.5"
-                            onChange={handleTypeComment}
-                            value={commentText}
+                            className="flex-1"
                             rows={1}
                         />
                         <button type="submit" className="ml-2 text-sm font-semibold text-primary">

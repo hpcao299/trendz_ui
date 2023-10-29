@@ -22,6 +22,7 @@ module.exports = {
                 lightWhite: 'rgba(255,255,255,.94)',
                 btnHover: 'rgb(219, 219, 219)',
                 btnBackground: 'rgb(239, 239, 239)',
+                link: 'rgb(0, 55, 107)',
             },
             maxWidth: {
                 'post-modal': 'calc(100% - 64px - 64px)',
@@ -52,6 +53,7 @@ module.exports = {
             },
             width: {
                 menu: '266px',
+                'media-info': '335px',
             },
             boxShadow: {
                 tooltip: 'rgba(0, 0, 0, 0.3) 0 2px 10px',

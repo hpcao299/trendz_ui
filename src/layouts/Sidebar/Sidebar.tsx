@@ -74,7 +74,7 @@ const Sidebar: React.FC = () => {
             },
             {
                 title: 'Profile · t_thuy.1607',
-                href: 't_thuy.1607',
+                href: '/t_thuy.1607',
                 imageUrl: '/example_profile.jpeg',
                 profile: true,
             },
