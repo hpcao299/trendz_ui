@@ -15,6 +15,10 @@ const links = [
         title: 'Language preferences',
         href: config.routes.langPreferences,
     },
+    {
+        title: 'Appearance settings',
+        href: config.routes.appearanceSetting,
+    },
 ];
 
 const SettingsSidebar: React.FC = () => {

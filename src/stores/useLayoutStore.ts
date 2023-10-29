@@ -1,12 +1,13 @@
 import { create } from 'zustand';
 
-type ModalType = 'Create';
+type ModalType = 'Create' | 'Follow Account';
 
 interface State {
     sidebar: {
         isNarrowed: boolean;
         activeLinkIndex: number;
         previousLinkIndex: number;
+        isAvailableBackward: boolean;
     };
     modal: {
         isVisible: boolean;
@@ -18,8 +19,8 @@ interface State {
 interface Actions {
     // Sidebar actions
     setIsNarrowed(isNarrowed: boolean): void;
-    setActiveLinkIndex(index: number): void;
-    setPreviousLinkIndex(index: number): void;
+    setIsAvailableBackward(isAvailableBackward: boolean): void;
+    changeLinkIndex(activeIndex: number, previousIndex?: number): void;
     backwardLinkIndex(): void;
 
     // Modal actions
@@ -32,6 +33,7 @@ const useLayoutStore = create<State & Actions>(set => ({
         isNarrowed: false,
         activeLinkIndex: 0,
         previousLinkIndex: 0,
+        isAvailableBackward: true,
     },
     modal: {
         isVisible: false,
@@ -43,20 +45,38 @@ const useLayoutStore = create<State & Actions>(set => ({
             sidebar: { ...state.sidebar, isNarrowed },
         }));
     },
-    setActiveLinkIndex(index) {
+    setIsAvailableBackward(isAvailableBackward) {
         set(state => ({
-            sidebar: { ...state.sidebar, activeLinkIndex: index },
+            sidebar: { ...state.sidebar, isAvailableBackward },
         }));
     },
-    setPreviousLinkIndex(index) {
-        set(state => ({
-            sidebar: { ...state.sidebar, previousLinkIndex: index },
-        }));
+    changeLinkIndex(activeIndex, previousIndex) {
+        set(state => {
+            const index = previousIndex ? previousIndex : state.sidebar.previousLinkIndex;
+
+            return {
+                sidebar: {
+                    ...state.sidebar,
+                    activeLinkIndex: activeIndex,
+                    previousLinkIndex: index,
+                },
+            };
+        });
     },
     backwardLinkIndex() {
-        set(state => ({
-            sidebar: { ...state.sidebar, activeLinkIndex: state.sidebar.previousLinkIndex },
-        }));
+        set(state => {
+            if (state.sidebar.isAvailableBackward) {
+                return {
+                    sidebar: {
+                        ...state.sidebar,
+                        activeLinkIndex: state.sidebar.previousLinkIndex,
+                        isAvailableBackward: true,
+                    },
+                };
+            }
+
+            return { sidebar: { ...state.sidebar, isAvailableBackward: true } };
+        });
     },
     showModal(type, props) {
         set({ modal: { isVisible: true, modalType: type, modalProps: props } });

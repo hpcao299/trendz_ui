@@ -23,18 +23,20 @@ import SearchSidebar from './SearchSidebar';
 
 const Sidebar: React.FC = () => {
     const [
-        { isNarrowed, activeLinkIndex },
+        { isNarrowed, activeLinkIndex, previousLinkIndex },
         setIsNarrowed,
-        setActiveLinkIndex,
-        setPreviousLinkIndex,
+        changeLinkIndex,
+        setIsAvailableBackward,
         showModal,
     ] = useLayoutStore(state => [
         state.sidebar,
         state.setIsNarrowed,
-        state.setActiveLinkIndex,
-        state.setPreviousLinkIndex,
+        state.changeLinkIndex,
+        state.setIsAvailableBackward,
         state.showModal,
     ]);
+
+    console.log({ activeLinkIndex, previousLinkIndex });
 
     const links = useMemo(
         () => [
@@ -72,13 +74,16 @@ const Sidebar: React.FC = () => {
             },
             {
                 title: 'Profile · t_thuy.1607',
-                href: 't_thuy.1607',
+                href: '/t_thuy.1607',
                 imageUrl: '/example_profile.jpeg',
                 profile: true,
             },
         ],
         [],
     );
+
+    // TODO: fix active link index when changing from search link to create link
+    // TODO: fix search link active when click to close
 
     return (
         <>
@@ -105,9 +110,12 @@ const Sidebar: React.FC = () => {
                                         onClick={e => {
                                             if (typeof link.onClick === 'function') {
                                                 link.onClick(e);
+                                                setIsAvailableBackward(true);
+                                                changeLinkIndex(i, activeLinkIndex);
+                                                return;
                                             }
-                                            setPreviousLinkIndex(activeLinkIndex);
-                                            setActiveLinkIndex(i);
+                                            setIsAvailableBackward(false);
+                                            changeLinkIndex(i);
                                         }}
                                     >
                                         {link.profile ? (
