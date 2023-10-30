@@ -1,3 +1,5 @@
+'use client';
+
 import { useLayoutStore } from '@/stores';
 import classNames from 'classnames';
 import { AnimationControls, motion } from 'framer-motion';
