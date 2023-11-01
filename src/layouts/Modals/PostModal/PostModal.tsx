@@ -1,13 +1,14 @@
 import { PostActions, PostCommentInput } from '@/components';
-import { useLayoutStore } from '@/stores';
 import { useAnimationControls } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
-import { IoClose, IoEllipsisHorizontal, IoHappyOutline, IoHeartOutline } from 'react-icons/io5';
+import { IoEllipsisHorizontal, IoHappyOutline, IoHeartOutline } from 'react-icons/io5';
+import CloseButton from '../CloseButton';
 
 const PostModal: React.FC = () => {
-    const hideModal = useLayoutStore(state => state.hideModal);
+    const router = useRouter();
     const [isLiked, setIsLiked] = useState<boolean>(false);
     const [commentText, setCommentText] = useState<string>('');
     const controls = useAnimationControls();
@@ -22,9 +23,7 @@ const PostModal: React.FC = () => {
 
     return (
         <>
-            <button className="absolute text-white right-4 top-4" onClick={hideModal}>
-                <IoClose size={28} />
-            </button>
+            <CloseButton onClose={() => router.back()} />
             <article className="rounded-[4px] m-auto overflow-hidden flex max-h-[calc(100vh-48px)] max-w-[calc(100vw-128px)] bg-black">
                 <div className="flex flex-col justify-center min-h-[450px] flex-shrink flex-1">
                     <div className="w-[736.797px] bg-black">

@@ -1,6 +1,7 @@
 'use client';
 
 import { PostActions } from '@/components';
+import { useLayoutStore } from '@/stores';
 import { motion, useAnimationControls } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -47,6 +48,7 @@ const heartImageMotion = {
 
 const PostItem: React.FC = () => {
     const controls = useAnimationControls();
+    const showModal = useLayoutStore(state => state.showModal);
     const [isLiked, setIsLiked] = useState<boolean>(true);
     const previousBtn = useRef<HTMLButtonElement>(null);
     const nextBtn = useRef<HTMLButtonElement>(null);
@@ -99,7 +101,11 @@ const PostItem: React.FC = () => {
                         <span className="text-sm font-normal text-secondaryText">1d</span>
                     </div>
                 </div>
-                <div>
+                <div
+                    role="button"
+                    onClick={() => showModal('Post Actions')}
+                    className="p-1 click-opacity"
+                >
                     <IoEllipsisHorizontal size={20} />
                 </div>
             </div>

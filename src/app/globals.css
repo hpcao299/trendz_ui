@@ -59,3 +59,7 @@ input:disabled {
 .profile-post-item:nth-child(3n -2) {
     margin-right: 4px;
 }
+
+.click-opacity {
+    @apply active:opacity-50;
+}

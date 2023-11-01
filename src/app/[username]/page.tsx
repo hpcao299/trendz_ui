@@ -53,7 +53,11 @@ const ProfilePage: NextPage<ProfilePageProps> = ({ params }) => {
                                     <IoChevronDown />
                                 </button>
                             </div>
-                            <div className="p-2 ml-1" role="button">
+                            <div
+                                className="p-2 ml-1 click-opacity"
+                                role="button"
+                                onClick={() => showModal('User Settings')}
+                            >
                                 <IoSettingsOutline size={24} />
                             </div>
                         </div>

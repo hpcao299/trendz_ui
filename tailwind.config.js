@@ -19,10 +19,14 @@ module.exports = {
                 secondaryText: 'rgb(115,115,115)',
                 grey: 'rgb(142,142,142)',
                 red: 'rgb(255, 48, 64)',
+                error: 'rgb(237, 73, 86)',
                 lightWhite: 'rgba(255,255,255,.94)',
                 btnHover: 'rgb(219, 219, 219)',
                 btnBackground: 'rgb(239, 239, 239)',
                 link: 'rgb(0, 55, 107)',
+            },
+            maxHeight: {
+                modal: 'calc(100vh - 40px)',
             },
             maxWidth: {
                 'post-modal': 'calc(100% - 64px - 64px)',
@@ -62,7 +66,7 @@ module.exports = {
             animation: {
                 'fade-in-tooltip': 'fadeIn .35s ease .8s',
                 'fade-out-tooltip': 'fadeOut .5s ease',
-                'scale-small': 'scaleSmall .2s ease',
+                'scale-small': 'scaleSmall .12s ease',
             },
             keyframes: {
                 fadeIn: {

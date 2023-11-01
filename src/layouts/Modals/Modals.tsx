@@ -4,6 +4,8 @@ import { useLayoutStore } from '@/stores';
 import React, { useEffect, useRef } from 'react';
 import FollowAccountModal from './FollowAccountModal';
 import CreateModal from './CreateModal';
+import PostActionsModal from './PostActionsModal';
+import UserSettingsModal from './UserSettingsModal';
 
 const Modal: React.FC = () => {
     const [{ isVisible, modalType, modalProps }, hideModal] = useLayoutStore(state => [
@@ -20,6 +22,10 @@ const Modal: React.FC = () => {
                 return <CreateModal />;
             case 'Follow Account':
                 return <FollowAccountModal />;
+            case 'Post Actions':
+                return <PostActionsModal />;
+            case 'User Settings':
+                return <UserSettingsModal />;
             default:
                 return null;
         }
