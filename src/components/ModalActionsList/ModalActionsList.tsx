@@ -10,6 +10,8 @@ interface ModalActionsList {
     onClose?: (...args: any[]) => void;
 }
 
+// TODO: Handle lazy loading for modal
+
 const ModalActionsList: React.FC<ModalActionsList> = ({
     actions,
     showCancelAction,
