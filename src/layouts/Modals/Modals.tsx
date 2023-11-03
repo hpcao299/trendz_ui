@@ -1,9 +1,15 @@
 'use client';
 
 import { useLayoutStore } from '@/stores';
-import React, { useEffect, useRef } from 'react';
-import FollowAccountModal from './FollowAccountModal';
-import CreateModal from './CreateModal';
+import React, { Suspense, useEffect, useRef } from 'react';
+import LoadingModal from './LoadingModal';
+
+const CreateModal = React.lazy(() => import('./CreateModal'));
+const PostActionsModal = React.lazy(() => import('./PostActionsModal'));
+const FollowAccountModal = React.lazy(() => import('./FollowAccountModal'));
+const UserSettingsModal = React.lazy(() => import('./UserSettingsModal'));
+
+// TODO: Loading component for different modal components based on their fetching methods
 
 const Modal: React.FC = () => {
     const [{ isVisible, modalType, modalProps }, hideModal] = useLayoutStore(state => [
@@ -20,6 +26,10 @@ const Modal: React.FC = () => {
                 return <CreateModal />;
             case 'Follow Account':
                 return <FollowAccountModal />;
+            case 'Post Actions':
+                return <PostActionsModal />;
+            case 'User Settings':
+                return <UserSettingsModal />;
             default:
                 return null;
         }
@@ -44,7 +54,7 @@ const Modal: React.FC = () => {
     return isVisible ? (
         <div className="fixed top-0 bottom-0 left-0 right-0 z-50 flex bg-[rgba(0,0,0,0.65)]">
             <div ref={modalRef} className="m-auto">
-                {renderModal()}
+                <Suspense fallback={<LoadingModal />}>{renderModal()}</Suspense>
             </div>
         </div>
     ) : null;

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-type ModalType = 'Create' | 'Follow Account';
+type ModalType = 'Create' | 'Follow Account' | 'Post Actions' | 'User Settings';
 
 interface State {
     sidebar: {
