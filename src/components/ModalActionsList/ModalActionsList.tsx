@@ -28,11 +28,11 @@ const ModalActionsList: React.FC<ModalActionsList> = ({
     };
 
     return (
-        <div className="overflow-y-auto bg-white max-h-modal rounded-xl w-[400px] animate-scale-small">
+        <div className="overflow-y-auto bg-white dark:bg-darkBackground dark:text-darkText max-h-modal rounded-xl w-[400px] animate-scale-small">
             {actions?.map((item, i) => (
                 <button
                     className={classNames(
-                        'flex items-center justify-center w-full first:rounded-tl-xl first:rounded-tr-xl last:rounded-bl-xl last:rounded-br-xl text-sm min-h-[48px] py-1 px-2 select-none border-t border-solid border-separator first:border-[0px]',
+                        'flex items-center justify-center w-full first:rounded-tl-xl first:rounded-tr-xl last:rounded-bl-xl last:rounded-br-xl text-sm min-h-[48px] py-1 px-2 select-none border-t border-solid border-separator dark:border-darkElevatedSeparator first:border-[0px]',
                         { 'text-red font-semibold': item.color === 'warn' },
                     )}
                     onClick={() => item.onClick && item.onClick()}
@@ -44,7 +44,7 @@ const ModalActionsList: React.FC<ModalActionsList> = ({
             {showCancelAction && (
                 <button
                     className={classNames(
-                        'flex items-center justify-center w-full first:rounded-tl-xl first:rounded-tr-xl last:rounded-bl-xl last:rounded-br-xl text-sm min-h-[48px] py-1 px-2 select-none border-t border-solid border-separator first:border-[0px]',
+                        'flex items-center justify-center w-full first:rounded-tl-xl first:rounded-tr-xl last:rounded-bl-xl last:rounded-br-xl text-sm min-h-[48px] py-1 px-2 select-none border-t border-solid border-separator dark:border-darkElevatedSeparator first:border-[0px]',
                         { 'text-red font-semibold': warnCancelAction },
                     )}
                     onClick={handleClose}

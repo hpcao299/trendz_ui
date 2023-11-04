@@ -89,7 +89,7 @@ const Sidebar: React.FC = () => {
         <>
             <div
                 className={classNames(
-                    'fixed top-0 bottom-0 left-0 flex flex-col pt-1 pb-5 border-r border-solid border-separator transition-[width] duration-500 ease-[ease] z-40 bg-white dark:bg-black',
+                    'fixed top-0 bottom-0 left-0 flex flex-col pt-1 pb-5 border-r border-solid border-separator dark:border-darkSeparator transition-[width] duration-500 ease-[ease] z-40 bg-white dark:bg-black',
                     { 'w-sidebar': !isNarrowed, 'w-narrow-sidebar': isNarrowed },
                 )}
             >
@@ -121,7 +121,7 @@ const Sidebar: React.FC = () => {
                                         {link.profile ? (
                                             <li
                                                 className={classNames(
-                                                    'relative group flex items-center hover:bg-lightHover rounded-lg duration-300 transition-colors',
+                                                    'relative group flex items-center hover:bg-lightHover dark:hover:bg-darkLightHover rounded-lg duration-300 transition-colors',
                                                     {
                                                         'w-12 h-12 justify-center my-0.5':
                                                             isNarrowed,
@@ -150,7 +150,7 @@ const Sidebar: React.FC = () => {
                                         ) : (
                                             <li
                                                 className={classNames(
-                                                    'relative group flex items-center hover:bg-lightHover rounded-lg duration-300 transition-colors',
+                                                    'relative group flex items-center hover:bg-lightHover dark:hover:bg-darkLightHover rounded-lg duration-300 transition-colors',
                                                     {
                                                         'w-12 h-12 justify-center my-0.5':
                                                             isNarrowed,

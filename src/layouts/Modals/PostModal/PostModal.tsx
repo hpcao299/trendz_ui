@@ -39,8 +39,8 @@ const PostModal: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col flex-1 max-w-[500px] min-w-[405px] bg-white">
-                    <header className="flex items-center border-b border-solid border-separator">
+                <div className="flex flex-col flex-1 max-w-[500px] min-w-[405px] bg-white dark:bg-black">
+                    <header className="flex items-center border-b border-solid border-separator dark:border-darkSeparator">
                         <div className="py-3.5 pr-1 pl-4 flex items-center flex-1">
                             <Link href="/t_thuy.1607">
                                 <Image
@@ -85,7 +85,9 @@ const PostModal: React.FC = () => {
                                         <br />
                                         380.000 / 35ml
                                     </div>
-                                    <div className="mt-2 mb-1 text-xs text-secondaryText">10w</div>
+                                    <div className="mt-2 mb-1 text-xs text-secondaryText dark:text-darkSecondaryText">
+                                        10w
+                                    </div>
                                 </div>
                             </div>
                         </li>
@@ -116,7 +118,7 @@ const PostModal: React.FC = () => {
                                                 </Link>
                                             </div>
                                             <div className="inline">Đẹp quá em gái ơi !!</div>
-                                            <div className="relative flex mt-2 mb-1 text-xs text-secondaryText">
+                                            <div className="relative flex mt-2 mb-1 text-xs text-secondaryText dark:text-darkSecondaryText">
                                                 <div className="relative">
                                                     <span className="mr-3">8w</span>
                                                     <span className="mr-3 font-semibold">
@@ -147,8 +149,8 @@ const PostModal: React.FC = () => {
                                 </div>
                                 <div className="mt-4 ml-[54px]">
                                     <button className="flex items-center">
-                                        <div className="h-[1px] w-6 border-b border-solid border-secondaryText align-middle mr-4"></div>
-                                        <span className="text-xs font-semibold text-secondaryText">
+                                        <div className="h-[1px] w-6 border-b border-solid border-secondaryText dark:border-darkSecondaryText align-middle mr-4"></div>
+                                        <span className="text-xs font-semibold text-secondaryText dark:text-darkSecondaryText">
                                             View replies (3)
                                         </span>
                                     </button>
@@ -156,7 +158,7 @@ const PostModal: React.FC = () => {
                             </li>
                         ))}
                     </ul>
-                    <div className="px-4 pb-4 pt-1.5 mt-1 border-t border-solid border-separator">
+                    <div className="px-4 pb-4 pt-1.5 mt-1 border-t border-solid border-separator dark:border-darkSeparator">
                         <div className="pb-1">
                             <PostActions
                                 isLiked={isLiked}
@@ -167,8 +169,8 @@ const PostModal: React.FC = () => {
                         <div className="text-sm font-semibold">53 likes</div>
                         <div className="text-xs text-secondary">26 minutes ago</div>
                     </div>
-                    <form className="pt-1.5 pr-4 flex items-center border-t border-solid border-separator pb-1.5">
-                        <button className="px-4 py-2 text-black" type="button">
+                    <form className="pt-1.5 pr-4 flex items-center border-t border-solid border-separator dark:border-darkSeparator pb-1.5">
+                        <button className="px-4 py-2 text-black dark:text-darkText" type="button">
                             <IoHappyOutline size={24} />
                         </button>
                         <PostCommentInput

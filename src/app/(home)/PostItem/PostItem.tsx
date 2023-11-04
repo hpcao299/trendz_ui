@@ -80,7 +80,7 @@ const PostItem: React.FC = () => {
     };
 
     return (
-        <article className="pb-4 mb-6 border-b border-solid border-separator">
+        <article className="pb-4 mb-6 border-b border-solid border-separator dark:border-darkSeparator">
             <div className="flex items-center justify-between pb-3 pl-1">
                 <div className="flex">
                     <div className="relative rounded-full bg-white p-0.5 mr-3">
@@ -97,8 +97,12 @@ const PostItem: React.FC = () => {
                     </div>
                     <div className="flex items-center">
                         <div className="text-sm font-semibold">t_thuy.1607</div>
-                        <span className="mx-1 text-sm font-normal text-secondaryText">•</span>
-                        <span className="text-sm font-normal text-secondaryText">1d</span>
+                        <span className="mx-1 text-sm font-normal text-secondaryText dark:text-darkSecondaryText">
+                            •
+                        </span>
+                        <span className="text-sm font-normal text-secondaryText dark:text-darkSecondaryText">
+                            1d
+                        </span>
                     </div>
                 </div>
                 <div
@@ -111,7 +115,7 @@ const PostItem: React.FC = () => {
             </div>
             <div
                 onClick={handleImageClick}
-                className="relative border border-solid border-separator rounded-[4px] overflow-hidden"
+                className="relative border border-solid border-separator dark:border-darkSeparator rounded-[4px] overflow-hidden"
             >
                 <Carousel
                     slidesToScroll={1}
@@ -172,7 +176,9 @@ const PostItem: React.FC = () => {
                 <div>
                     <span>...</span>
                     <br />
-                    <div className="flex-1 text-[#737373] cursor-pointer">more</div>
+                    <div className="flex-1 text-[#737373] cursor-pointer dark:text-darkSecondaryText">
+                        more
+                    </div>
                 </div>
             </div>
             <form className="mt-2">
@@ -180,7 +186,7 @@ const PostItem: React.FC = () => {
                     autoCorrect="off"
                     autoComplete="off"
                     placeholder="Add a comment…"
-                    className="w-full max-w-full text-sm bg-white outline-none resize-none max-h-20 h-4.5"
+                    className="w-full max-w-full text-sm bg-white outline-none resize-none max-h-20 h-4.5 dark:bg-black"
                 ></textarea>
             </form>
         </article>

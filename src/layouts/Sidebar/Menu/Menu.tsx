@@ -15,7 +15,7 @@ const Menu: React.FC = () => {
             <div className="relative">
                 <div
                     className={classNames(
-                        'relative group flex items-center hover:bg-lightHover rounded-lg duration-300 transition-colors',
+                        'relative group flex items-center hover:bg-lightHover dark:hover:bg-darkLightHover rounded-lg duration-300 transition-colors',
                         {
                             'w-12 h-12 justify-center my-0.5': isNarrowed,
                             'p-3 my-0.5': !isNarrowed,

@@ -16,7 +16,7 @@ button:disabled {
 }
 
 .btn-secondary {
-    @apply text-black bg-btnBackground hover:bg-btnHover;
+    @apply text-black bg-btnBackground hover:bg-btnHover dark:bg-darkBtnBackground dark:hover:bg-darkBtnHover dark:text-darkText;
 }
 
 .input-checkbox-theme-mode {

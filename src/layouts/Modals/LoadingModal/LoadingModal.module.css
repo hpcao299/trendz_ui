@@ -34,6 +34,15 @@
     animation: loader-1 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
 }
 
+.loader.darkLoader span::before {
+    border: 3px solid #737373;
+    border-bottom: 3px solid transparent;
+}
+
+.loader.darkLoader span::after {
+    background: #737373;
+}
+
 @-webkit-keyframes loader-1 {
     0% {
         -webkit-transform: rotate(0deg);

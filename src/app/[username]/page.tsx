@@ -78,8 +78,8 @@ const ProfilePage: NextPage<ProfilePageProps> = ({ params }) => {
                         </div>
                     </div>
                 </header>
-                <div className="border-t border-solid border-separator">
-                    {/* <div className="max-w-[350px] mx-auto my-[60px] flex flex-col items-center justify-center text-center">
+                <div className="border-t border-solid border-separator dark:border-darkSeparator">
+                    <div className="max-w-[350px] mx-auto my-[60px] flex flex-col items-center justify-center text-center">
                         <div className="bg-photo h-[62px] w-[62px]"></div>
                         <div className="mt-5 mb-4 text-3xl font-extrabold">Share Photos</div>
                         <div className="mb-5 text-sm">
@@ -87,14 +87,14 @@ const ProfilePage: NextPage<ProfilePageProps> = ({ params }) => {
                         </div>
                         <div
                             role="button"
-                            className="text-sm font-semibold text-primary hover:text-black"
+                            className="text-sm font-semibold text-primary hover:text-black dark:hover:text-darkLink"
                         >
                             Share your first photo
                         </div>
-                    </div> */}
-                    <div className="mt-1 mb-6">
-                        <PostsList />
                     </div>
+                    {/* <div className="mt-1 mb-6">
+                        <PostsList />
+                    </div> */}
                 </div>
             </div>
             <CopyrightFooter />

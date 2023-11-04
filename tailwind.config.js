@@ -24,8 +24,19 @@ module.exports = {
                 btnHover: 'rgb(219, 219, 219)',
                 btnBackground: 'rgb(239, 239, 239)',
                 link: 'rgb(0, 55, 107)',
+                highlightBackground: 'rgb(38, 38, 38)',
 
+                darkBackground: '#262626',
+                darkSecondaryText: '#A8A8A8',
                 darkText: '#f5f5f5',
+                darkLightHover: 'rgba(255, 255, 255, .1)',
+                darkSeparator: 'rgb(38, 38, 38)',
+                darkBtnBackground: 'rgb(54, 54, 54)',
+                darkBtnHover: 'rgb(38, 38, 38)',
+                darkElevatedSeparator: 'rgb(54, 54, 54)',
+                darkLink: 'rgb(224, 241, 255)',
+
+                stroke: 'rgb(85, 85, 85)',
             },
             maxHeight: {
                 modal: 'calc(100vh - 40px)',
