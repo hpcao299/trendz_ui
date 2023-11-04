@@ -1,10 +1,8 @@
 'use client';
 
-import { useLayoutStore } from '@/stores';
 import classNames from 'classnames';
 import { AnimationControls, motion } from 'framer-motion';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
 import {
     IoBookmarkOutline,
@@ -31,15 +29,6 @@ interface PostActionsProps {
 }
 
 const PostActions: React.FC<PostActionsProps> = ({ isLiked, handleToggleLiked, controls }) => {
-    const showModal = useLayoutStore(state => state.showModal);
-    const router = useRouter();
-    const pathname = usePathname();
-
-    const handleOpenPostModal = () => {
-        router.push(`${pathname}?p=${new Date().getTime()}`, { scroll: false });
-        // showModal('Post');
-    };
-
     return (
         <div className="flex items-center justify-between my-1 -ml-2">
             <div className="flex items-center">

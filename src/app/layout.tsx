@@ -1,4 +1,4 @@
-import { Sidebar } from '@/layouts';
+import { LayoutTheme, Sidebar } from '@/layouts';
 import type { Metadata } from 'next';
 import './globals.css';
 import './components.css';
@@ -20,12 +20,12 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body>
+            <LayoutTheme>
                 <Sidebar />
                 <main className="ml-sidebar">{children}</main>
                 <Modals />
                 {modal}
-            </body>
+            </LayoutTheme>
         </html>
     );
 }

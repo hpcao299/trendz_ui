@@ -89,7 +89,7 @@ const Sidebar: React.FC = () => {
         <>
             <div
                 className={classNames(
-                    'fixed top-0 bottom-0 left-0 flex flex-col pt-1 pb-5 border-r border-solid border-separator transition-[width] duration-500 ease-[ease] z-40 bg-white',
+                    'fixed top-0 bottom-0 left-0 flex flex-col pt-1 pb-5 border-r border-solid border-separator transition-[width] duration-500 ease-[ease] z-40 bg-white dark:bg-black',
                     { 'w-sidebar': !isNarrowed, 'w-narrow-sidebar': isNarrowed },
                 )}
             >

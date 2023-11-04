@@ -16,5 +16,9 @@ button:disabled {
 }
 
 .btn-secondary {
-    @apply bg-btnBackground hover:bg-btnHover text-black;
+    @apply text-black bg-btnBackground hover:bg-btnHover;
+}
+
+.input-checkbox-theme-mode {
+    @apply relative transition-colors bg-[#dbdbdb] dark:bg-primary dark:before:translate-x-[10px] rounded-2xl w-[26px] h-4 before:absolute before:bg-white before:-translate-y-1/2 before:top-1/2 before:w-3.5 before:h-3.5 before:rounded-full before:transition-transform before:left-[1px] before:border before:border-solid before:border-[rgba(0,0,0,.101987)];
 }

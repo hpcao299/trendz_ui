@@ -24,6 +24,8 @@ module.exports = {
                 btnHover: 'rgb(219, 219, 219)',
                 btnBackground: 'rgb(239, 239, 239)',
                 link: 'rgb(0, 55, 107)',
+
+                darkText: '#f5f5f5',
             },
             maxHeight: {
                 modal: 'calc(100vh - 40px)',
@@ -57,6 +59,7 @@ module.exports = {
             },
             width: {
                 menu: '266px',
+                menusContainer: 'calc(266px * 2)',
                 'media-info': '335px',
             },
             boxShadow: {
@@ -86,4 +89,5 @@ module.exports = {
         },
     },
     plugins: [],
+    darkMode: 'class',
 };
