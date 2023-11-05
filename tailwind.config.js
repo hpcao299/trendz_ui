@@ -81,6 +81,8 @@ module.exports = {
                 'fade-in-tooltip': 'fadeIn .35s ease .8s',
                 'fade-out-tooltip': 'fadeOut .5s ease',
                 'scale-small': 'scaleSmall .12s ease',
+                'loader-border': 'loaderBorder 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite',
+                'loader-point': 'loaderPoint 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite',
             },
             keyframes: {
                 fadeIn: {
@@ -95,6 +97,34 @@ module.exports = {
                 scaleSmall: {
                     '0%': { transform: 'scale(1.08)' },
                     '100%': { transform: 'scale(1)' },
+                },
+                loaderBorder: {
+                    '0%': {
+                        transform: 'rotate(0deg)',
+                    },
+                    '40%': {
+                        transform: 'rotate(180deg)',
+                    },
+                    '60%': {
+                        transform: 'rotate(180deg)',
+                    },
+                    '100%': {
+                        transform: 'rotate(360deg)',
+                    },
+                },
+                loaderPoint: {
+                    '0%': {
+                        transform: 'translate3d(0, -32px, 0) scale(0, 2)',
+                        opacity: 0,
+                    },
+                    '50%': {
+                        transform: 'translate3d(0, 0, 0) scale(1.25, 1.25)',
+                        opacity: 1,
+                    },
+                    '100%': {
+                        transform: 'translate3d(0, 8px, 0) scale(0, 0)',
+                        opacity: 0,
+                    },
                 },
             },
         },
