@@ -11,8 +11,8 @@ const FollowAccountModal: React.FC = () => {
     };
 
     return (
-        <div className="bg-white rounded-xl w-[400px] relative animate-scale-small">
-            <div className="flex flex-col items-center justify-center p-4 border-b border-solid border-separator">
+        <div className="bg-white rounded-xl w-[400px] relative animate-scale-small dark:bg-darkBackground">
+            <div className="flex flex-col items-center justify-center p-4 border-b border-solid border-separator dark:border-darkElevatedSeparator">
                 <Image
                     src="/example_profile.jpeg"
                     alt="t_thuy.1607's profile picture"
@@ -24,20 +24,20 @@ const FollowAccountModal: React.FC = () => {
             </div>
             <ul>
                 <li
-                    className="flex items-center justify-between p-4 text-sm transition-colors duration-100 hover:bg-lightHover"
+                    className="flex items-center justify-between p-4 text-sm transition-colors duration-100 hover:bg-lightHover dark:hover:bg-darkLightHover"
                     role="button"
                 >
                     <span>Add to favorites</span>
                     <IoStarOutline size={20} />
                 </li>
                 <li
-                    className="flex items-center justify-between p-4 text-sm transition-colors duration-100 hover:bg-lightHover"
+                    className="flex items-center justify-between p-4 text-sm transition-colors duration-100 hover:bg-lightHover dark:hover:bg-darkLightHover"
                     role="button"
                 >
                     <span>Mute</span>
                 </li>
                 <li
-                    className="flex items-center justify-between p-4 text-sm transition-colors duration-100 hover:bg-lightHover"
+                    className="flex items-center justify-between p-4 text-sm transition-colors duration-100 hover:bg-lightHover dark:hover:bg-darkLightHover"
                     role="button"
                 >
                     <span>Unfollow</span>

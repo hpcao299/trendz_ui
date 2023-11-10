@@ -50,7 +50,7 @@ const SearchSidebar: React.FC = () => {
                     initial="rest"
                     animate="slideIn"
                     exit="rest"
-                    className="fixed top-0 z-30 h-screen py-2 overflow-y-auto bg-white border-r border-solid w-search-sidebar shadow-searchSidebar left-search-sidebar-left-spacing border-separator rounded-r-2xl"
+                    className="fixed top-0 z-30 h-screen py-2 overflow-y-auto bg-white border-r border-solid dark:border-darkSeparator dark:bg-black w-search-sidebar shadow-searchSidebar left-search-sidebar-left-spacing border-separator rounded-r-2xl"
                     ref={wrapper}
                 >
                     <div className="pl-6 pt-3 pr-[14px] pb-9 text-2xl font-semibold">Search</div>
@@ -58,23 +58,23 @@ const SearchSidebar: React.FC = () => {
                         <input
                             type="text"
                             placeholder="Search"
-                            className="py-[3px] px-4 rounded-lg bg-[#efefef] outline-none w-full h-10"
+                            className="py-[3px] px-4 rounded-lg bg-[#efefef] outline-none w-full h-10 dark:bg-highlightBackground"
                             autoCapitalize="none"
                         />
                     </div>
-                    <div className="pt-3 border-t border-solid border-separator">
+                    <div className="pt-3 border-t border-solid border-separator dark:border-darkSeparator">
                         <div className="flex items-center justify-between pt-1 mx-6 mb-2">
                             <span className="text-base font-semibold">Recent</span>
                             <div
                                 role="button"
-                                className="text-sm font-semibold text-primary hover:text-black"
+                                className="text-sm font-semibold text-primary hover:text-black dark:hover:text-darkLink"
                             >
                                 Clear all
                             </div>
                         </div>
                         {Array.from({ length: 20 }).map((a, i) => (
                             <Link key={i} href="/">
-                                <div className="flex px-6 py-2 transition-colors duration-100 hover:bg-lightHover">
+                                <div className="flex px-6 py-2 transition-colors duration-100 hover:bg-lightHover dark:hover:bg-darkLightHover">
                                     <Image
                                         src="/example_profile.jpeg"
                                         alt="profile picture"
@@ -84,7 +84,9 @@ const SearchSidebar: React.FC = () => {
                                     />
                                     <div className="flex-1">
                                         <span className="text-sm font-semibold">t_thuy.1607</span>
-                                        <div className="text-sm text-secondaryText">Thanh Thuý</div>
+                                        <div className="text-sm text-secondaryText dark:text-darkSecondaryText">
+                                            Thanh Thuý
+                                        </div>
                                     </div>
                                     <div
                                         className="flex items-center justify-center p-2 ml-3"

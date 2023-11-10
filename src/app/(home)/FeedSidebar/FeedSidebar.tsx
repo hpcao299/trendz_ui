@@ -20,13 +20,17 @@ const FeedSidebar: React.FC = () => {
                         <Link href="/" className="font-semibold">
                             t_thuy.1607
                         </Link>
-                        <div className="text-[#737373]">Thanh Thuý</div>
+                        <div className="text-[#737373] dark:text-[rgb(168,168,168)]">
+                            Thanh Thuý
+                        </div>
                     </div>
                     <button className="text-xs font-semibold text-primary">Switch</button>
                 </div>
                 <div className="mt-6 mb-2 font-semibold">
                     <div className="flex items-center justify-between px-4 py-1 text-sm">
-                        <span className="text-[rgb(115,115,115)]">Suggested for you</span>
+                        <span className="text-[rgb(115,115,115)] dark:text-[rgb(168,168,168)]">
+                            Suggested for you
+                        </span>
                         <Link href="/" className="hover:opacity-50">
                             See All
                         </Link>
@@ -47,7 +51,7 @@ const FeedSidebar: React.FC = () => {
                                     <Link href="/" className="font-semibold">
                                         t_thuy.1607
                                     </Link>
-                                    <div className="text-[#737373] font-normal">
+                                    <div className="text-[#737373] dark:text-[rgb(168,168,168)] font-normal">
                                         Suggested for you
                                     </div>
                                 </div>
@@ -58,29 +62,29 @@ const FeedSidebar: React.FC = () => {
                         ))}
                     </div>
                 </div>
-                <ul className="text-xs text-[rgb(199,199,199)] flex mt-6">
-                    <li className="after:text-[rgb(199,199,199)] after:rounded-full after:mx-[3px] after:content-['\00B7'] flex items-center last:after:hidden">
+                <ul className="text-xs text-[rgb(199,199,199)] dark:text-[#737373] flex mt-6">
+                    <li className="after:text-[rgb(199,199,199)] dark:text-[#737373] after:rounded-full after:mx-[3px] after:content-['\00B7'] flex items-center last:after:hidden">
                         <Link href="/" className="hover:underline">
                             About
                         </Link>
                     </li>
-                    <li className="after:text-[rgb(199,199,199)] after:rounded-full after:mx-[3px] after:content-['\00B7'] flex items-center last:after:hidden">
+                    <li className="after:text-[rgb(199,199,199)] dark:text-[#737373] after:rounded-full after:mx-[3px] after:content-['\00B7'] flex items-center last:after:hidden">
                         <Link href="/" className="hover:underline">
                             Help
                         </Link>
                     </li>
-                    <li className="after:text-[rgb(199,199,199)] after:rounded-full after:mx-[3px] after:content-['\00B7'] flex items-center last:after:hidden">
+                    <li className="after:text-[rgb(199,199,199)] dark:text-[#737373] after:rounded-full after:mx-[3px] after:content-['\00B7'] flex items-center last:after:hidden">
                         <Link href="/" className="hover:underline">
                             API
                         </Link>
                     </li>
-                    <li className="after:text-[rgb(199,199,199)] after:rounded-full after:mx-[3px] after:content-['\00B7'] flex items-center last:after:hidden">
+                    <li className="after:text-[rgb(199,199,199)] dark:text-[#737373] after:rounded-full after:mx-[3px] after:content-['\00B7'] flex items-center last:after:hidden">
                         <Link href="/" className="hover:underline">
                             Privacy
                         </Link>
                     </li>
                 </ul>
-                <div className="uppercase text-xs text-[rgb(199,199,199)] mt-4">
+                <div className="uppercase text-xs text-[rgb(199,199,199)] dark:text-[#737373] mt-4">
                     © 2023 TRENDZ FROM JACK CAO
                 </div>
             </div>

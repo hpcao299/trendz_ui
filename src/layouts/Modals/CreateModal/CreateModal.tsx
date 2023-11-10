@@ -10,8 +10,8 @@ const CreateModal: React.FC = () => {
     return (
         <>
             <CloseButton onClose={hideModal} />
-            <div className="overflow-y-auto bg-white max-h-modal rounded-xl w-[750px] animate-scale-small">
-                <div className="flex items-center justify-center border-b border-solid h-11 border-separator">
+            <div className="overflow-y-auto bg-white dark:bg-darkBackground max-h-modal rounded-xl w-[750px] animate-scale-small">
+                <div className="flex items-center justify-center border-b border-solid h-11 border-separator dark:border-darkElevatedSeparator">
                     <span className="text-base font-semibold">Create new post</span>
                 </div>
                 <div className="flex flex-col items-center justify-center p-6 aspect-square">

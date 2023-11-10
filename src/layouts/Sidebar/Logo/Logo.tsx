@@ -53,12 +53,20 @@ const Logo: React.FC = () => {
                             exit="rest"
                         >
                             <Image
-                                rel="preload"
                                 src="/icon_logo.png"
                                 alt="Trendz Logo"
                                 width={26}
                                 height={26}
-                                className="w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]"
+                                priority
+                                className="w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%] dark:hidden"
+                            />
+                            <Image
+                                src="/icon_dark_logo.png"
+                                alt="Trendz Logo"
+                                width={26}
+                                height={26}
+                                priority
+                                className="w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%] hidden dark:inline-block"
                             />
                         </motion.div>
                     )}
@@ -77,7 +85,16 @@ const Logo: React.FC = () => {
                                 alt="Trendz Logo"
                                 width={130}
                                 height={24}
-                                className="w-auto h-[26px] px-3"
+                                priority
+                                className="w-auto h-[26px] px-3 dark:hidden"
+                            />
+                            <Image
+                                src="/trendz_dark_logo.png"
+                                alt="Trendz Logo"
+                                width={130}
+                                height={24}
+                                priority
+                                className="w-auto h-[26px] px-3 hidden dark:inline-block"
                             />
                         </motion.div>
                     )}

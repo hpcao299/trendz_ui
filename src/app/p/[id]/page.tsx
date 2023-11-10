@@ -16,8 +16,8 @@ const PostDetailPage = () => {
 
     return (
         <div className="max-w-[935px] pt-[4vh] px-5 w-full mx-auto">
-            <div className="max-w-[815px] mx-auto flex border border-solid border-separator">
-                <div className="min-h-[450px] border-r border-solid border-separator flex-1">
+            <div className="max-w-[815px] mx-auto flex border border-solid border-separator dark:border-darkSeparator">
+                <div className="min-h-[450px] border-r border-solid border-separator dark:border-darkSeparator flex-1">
                     <div className="pb-[125%] overflow-hidden w-full relative">
                         <Image
                             src="/example_post1.jpeg"
@@ -30,11 +30,14 @@ const PostDetailPage = () => {
                     </div>
                 </div>
                 <div className="flex flex-col w-media-info">
-                    <div className="py-3.5 pl-6 pr-4 flex text-sm border-b border-solid border-separator">
+                    <div className="py-3.5 pl-6 pr-4 flex text-sm border-b border-solid border-separator dark:border-darkSeparator">
                         <div className="flex flex-1 font-semibold">
                             <h2>t_thuy.1607</h2>
                             <span className="mx-1 font-normal">•</span>
-                            <div className="text-[rgb(38,38,38)]" role="button">
+                            <div
+                                className="text-[rgb(38,38,38)] dark:text-darkText hover:opacity-50"
+                                role="button"
+                            >
                                 Following
                             </div>
                         </div>
@@ -56,7 +59,9 @@ const PostDetailPage = () => {
                             <div className="text-sm">
                                 <div className="flex">
                                     <span className="font-semibold">t_thuy.1607</span>
-                                    <div className="ml-1 text-secondaryText">11w</div>
+                                    <div className="ml-1 text-secondaryText dark:text-darkSecondaryText">
+                                        11w
+                                    </div>
                                 </div>
                                 <span>
                                     Mùi hương em nồng sayy <br />
@@ -71,14 +76,16 @@ const PostDetailPage = () => {
                             <div className="mt-3 text-sm">Start the conversation.</div>
                         </div>
                     </ul>
-                    <div className="py-1.5 px-4 border-t border-solid border-separator">
+                    <div className="py-1.5 px-4 border-t border-solid border-separator dark:border-darkSeparator">
                         <PostActions
                             isLiked={isLiked}
                             controls={controls}
                             handleToggleLiked={() => setIsLiked(!isLiked)}
                         />
                         <div className="text-sm font-semibold">135 likes</div>
-                        <div className="text-[10px] uppercase mb-4">AUGUST 13</div>
+                        <div className="text-[10px] uppercase mb-4 dark:text-darkSecondaryText">
+                            AUGUST 13
+                        </div>
                     </div>
                     <div className="flex px-4 py-2">
                         <Image
@@ -101,22 +108,26 @@ const PostDetailPage = () => {
                             {commentText && (
                                 <button
                                     type="submit"
-                                    className="text-sm font-semibold text-primary hover:text-link"
+                                    className="text-sm font-semibold text-primary hover:text-link dark:hover:text-darkLink"
                                 >
                                     Post
                                 </button>
                             )}
-                            <button className="text-secondaryText" type="button">
+                            <button
+                                className="text-secondaryText dark:text-darkSecondaryText"
+                                type="button"
+                            >
                                 <IoHappyOutline size={24} />
                             </button>
                         </form>
                     </div>
                 </div>
             </div>
-            <div className="mt-12 border-b border-solid border-separator"></div>
+            <div className="mt-12 border-b border-solid border-separator dark:border-darkSeparator"></div>
             <div className="pt-[6vh]">
-                <div className="mb-5 text-sm font-semibold text-secondaryText">
-                    More posts from <span className="text-black">t_thuy.1607</span>
+                <div className="mb-5 text-sm font-semibold text-secondaryText dark:text-darkSecondaryText">
+                    More posts from{' '}
+                    <span className="text-black dark:text-darkText">t_thuy.1607</span>
                 </div>
                 <PostsList />
             </div>

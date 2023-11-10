@@ -12,6 +12,8 @@ const Stories: React.FC = () => {
         slidesToScroll: 4,
     };
 
+    // TODO: Fix story background gradient in dark mode
+
     return (
         <Carousel
             {...settings}
@@ -39,7 +41,7 @@ const Stories: React.FC = () => {
         >
             {Array.from({ length: 16 }).map((a, i) => (
                 <div key={i} className="flex flex-col items-center">
-                    <div className="relative mt-1 mb-2 rounded-full bg-white p-0.5">
+                    <div className="relative mt-1 mb-2 rounded-full bg-white dark:bg-black p-0.5">
                         <Image
                             src="/example_profile.jpeg"
                             width={56}

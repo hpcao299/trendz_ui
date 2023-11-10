@@ -16,7 +16,7 @@ const AccountEditPage = () => {
                     <span className="block text-base">t_thuy.1607</span>
                     <div
                         role="button"
-                        className="text-sm font-semibold hover:text-black text-primary"
+                        className="text-sm font-semibold hover:text-black text-primary dark:hover:text-darkLink"
                     >
                         Change profile photo
                     </div>
@@ -36,7 +36,7 @@ const AccountEditPage = () => {
                                     disabled
                                     type="text"
                                     placeholder="Website"
-                                    className="border border-solid px-2.5 h-8 text-base border-btnHover rounded-sm w-full"
+                                    className="border border-solid px-2.5 h-8 text-base border-btnHover dark:bg-highlightBackground dark:border-darkSeparator rounded-sm w-full"
                                 />
                                 <div className="my-2 text-xs text-secondaryText">
                                     Editing your links is only available on mobile. Visit the
@@ -58,7 +58,7 @@ const AccountEditPage = () => {
                                     name="bio"
                                     id="bio"
                                     placeholder="Bio"
-                                    className="border border-solid px-2.5 py-1.5 h-8 text-base border-btnHover rounded-sm w-full min-h-[60px]"
+                                    className="border border-solid px-2.5 py-1.5 h-8 text-base border-btnHover dark:border-stroke bg-transparent rounded-sm w-full min-h-[60px]"
                                     autoComplete="false"
                                 ></textarea>
                                 <div className="text-xs text-secondaryText">3 / 150</div>
@@ -78,7 +78,7 @@ const AccountEditPage = () => {
                                         name="gender"
                                         id="gender"
                                         value="Male"
-                                        className="border border-solid px-2.5 py-1.5 h-8 text-base border-btnHover rounded-sm w-full outline-none select-none"
+                                        className="border border-solid px-2.5 py-1.5 h-8 text-base border-btnHover dark:border-stroke bg-transparent rounded-sm w-full outline-none select-none"
                                         readOnly
                                     />
                                 </button>

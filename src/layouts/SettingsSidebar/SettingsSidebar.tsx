@@ -26,7 +26,7 @@ const SettingsSidebar: React.FC = () => {
 
     return (
         <div className="h-screen py-6 overflow-y-auto w-setting-sidebar-width">
-            <div className="h-full border-r border-solid border-separator">
+            <div className="h-full border-r border-solid border-separator dark:border-darkSeparator">
                 <div className="mr-12 ml-9">
                     <div className="px-4 mb-6 text-xl font-bold">Settings</div>
                     {links.map((link, i) => {
@@ -38,8 +38,10 @@ const SettingsSidebar: React.FC = () => {
                                     className={classNames(
                                         'p-4 text-sm rounded-lg transition-colors ease-out',
                                         {
-                                            'hover:bg-[#e5e4e5] bg-btnBackground': isActive,
-                                            'hover:bg-[rgba(0,0,0,.05)]': !isActive,
+                                            'hover:bg-[#e5e4e5] bg-btnBackground dark:hover:bg-darkSeparator dark:bg-darkLightHover':
+                                                isActive,
+                                            'hover:bg-[rgba(0,0,0,.05)] dark:hover:bg-darkLightHover':
+                                                !isActive,
                                         },
                                     )}
                                 >

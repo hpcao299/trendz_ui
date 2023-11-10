@@ -24,7 +24,7 @@ const PostCommentInput: React.FC<PostCommentInputProps> = ({
         <textarea
             onChange={handleChange}
             value={value}
-            className={`resize-none text-sm leading-[18px] outline-none h-4.5 ${className}`}
+            className={`resize-none text-sm leading-[18px] outline-none h-4.5 bg-transparent ${className}`}
             {...props}
         />
     );
