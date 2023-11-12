@@ -2,6 +2,7 @@
 
 import { useThemeStore } from '@/stores';
 import classNames from 'classnames';
+import { useTranslations } from 'next-intl';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 
 interface AppearanceOptionItem {
@@ -12,6 +13,7 @@ interface AppearanceOptionItem {
 }
 
 const AppearanceOptions: React.FC = () => {
+    const t = useTranslations('Settings');
     const [darkMode, setLightTheme, setDarkTheme] = useThemeStore(state => [
         state.darkMode,
         state.setLightTheme,
@@ -21,13 +23,13 @@ const AppearanceOptions: React.FC = () => {
     return (
         <div>
             <AppearanceOptionItem
-                title="Light theme"
+                title={t('light-mode')}
                 Icon={IoSunnyOutline}
                 isActive={!darkMode}
                 onClick={setLightTheme}
             />
             <AppearanceOptionItem
-                title="Dark theme"
+                title={t('dark-mode')}
                 Icon={IoMoonOutline}
                 isActive={darkMode}
                 onClick={setDarkTheme}

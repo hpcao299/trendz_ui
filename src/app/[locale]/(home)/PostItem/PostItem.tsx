@@ -3,6 +3,7 @@
 import { PostActions } from '@/components';
 import { useLayoutStore } from '@/stores';
 import { motion, useAnimationControls } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import Carousel from 'nuka-carousel';
@@ -48,6 +49,7 @@ const heartImageMotion = {
 
 const PostItem: React.FC = () => {
     const controls = useAnimationControls();
+    const t = useTranslations('Post');
     const showModal = useLayoutStore(state => state.showModal);
     const [isLiked, setIsLiked] = useState<boolean>(true);
     const previousBtn = useRef<HTMLButtonElement>(null);
@@ -165,7 +167,7 @@ const PostItem: React.FC = () => {
                     controls={controls}
                 />
             </div>
-            <div className="text-sm font-semibold">16 likes</div>
+            <div className="text-sm font-semibold">16 {t('like-count')}</div>
             <div className="mt-2 text-sm">
                 <div className="flex">
                     <Link href="/" className="mr-1 font-semibold hover:text-grey">
@@ -177,7 +179,7 @@ const PostItem: React.FC = () => {
                     <span>...</span>
                     <br />
                     <div className="flex-1 text-[#737373] cursor-pointer dark:text-darkSecondaryText">
-                        more
+                        {t('more')}
                     </div>
                 </div>
             </div>
@@ -185,7 +187,7 @@ const PostItem: React.FC = () => {
                 <textarea
                     autoCorrect="off"
                     autoComplete="off"
-                    placeholder="Add a comment…"
+                    placeholder={t('add-comment')}
                     className="w-full max-w-full text-sm bg-white outline-none resize-none max-h-20 h-4.5 dark:bg-black"
                 ></textarea>
             </form>

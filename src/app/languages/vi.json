@@ -1,0 +1,108 @@
+{
+    "Sidebar": {
+        "home": "Trang chủ",
+        "search": "Tìm kiếm",
+        "explore": "Khám phá",
+        "create": "Tạo",
+        "profile": "Trang cá nhân",
+
+        "menu": "Xem thêm",
+        "settings": "Cài đặt",
+        "saved": "Đã lưu",
+        "appearance": "Chuyển chế độ",
+        "problem": "Báo cáo sự cố",
+        "logout": "Đăng xuất",
+        "dark-mode": "Chế độ tối"
+    },
+
+    "Post": {
+        "like-count": "lượt thích",
+        "more": "xem thêm",
+        "add-comment": "Thêm bình luận...",
+        "post-comment": "Đăng",
+        "reply-comment": "Trả lời",
+        "view-reply": "Xem câu trả lời",
+
+        "following": "Đang theo dõi",
+        "follow": "Theo dõi",
+        "no-comment": "Chưa có bình luận nào.",
+        "start-conversation": "Bắt đầu trò chuyện.",
+        "more-post": "Thêm các bài viết từ"
+    },
+
+    "Feed Sidebar": {
+        "suggested": "Gợi ý cho bạn",
+        "see-all": "Xem tất cả",
+        "switch-account": "Chuyển",
+        "follow": "Theo dõi",
+
+        "about": "Giới thiệu",
+        "help": "Trợ giúp",
+        "api": "API",
+        "privacy": "Quyền riêng tư"
+    },
+
+    "Profile": {
+        "post-count": "bài viết",
+        "follower-count": "người theo dõi",
+        "following-count": "đang theo dõi",
+
+        "share-photo": "Chia sẻ ảnh",
+        "share-photo-desc": "Khi bạn chia sẻ ảnh, ảnh sẽ xuất hiện trên trang cá nhân của bạn.",
+        "share-photo-link": "Chia sẻ ảnh đầu tiên của bạn"
+    },
+
+    "Settings": {
+        "settings": "Cài đặt",
+
+        "edit-profile": "Chỉnh sửa trang cá nhân",
+        "change-profile-photo": "Thay đổi ảnh đại diện",
+        "website": "Trang web",
+        "website-desc": "Bạn chỉ có thể chỉnh sửa liên kết trên di động. Hãy mở ứng dụng Instagram và chỉnh sửa trang cá nhân của bạn để thay đổi trang web trong phần tiểu sử.",
+        "bio": "Tiểu sử",
+        "gender": "Giới tính",
+        "gender-desc": "Thông tin này sẽ không xuất hiện trên trang cá nhân công khai của bạn.",
+        "submit": "Lưu",
+
+        "lan-preferences": "Tuỳ chọn ngôn ngữ",
+        "app-language": "Ngôn ngữ ứng dụng",
+        "app-language-desc": "Xem các nút, tiêu đề và văn bản khác trên Instagram bằng ngôn ngữ ưa dùng của bạn.",
+
+        "appearance-settings": "Cài đặt chế độ",
+        "appearance-settings-desc": "Tùy chỉnh giao diện ứng dụng của bạn để phù hợp với môi trường xung quanh và tận hưởng trải nghiệm hình ảnh thoải mái.",
+        "light-mode": "Chế độ sáng",
+        "dark-mode": "Chế độ tối"
+    },
+
+    "Follow Account Modal": {
+        "add-to-favorite": "Thêm vào mục yêu thích",
+        "mute": "Tắt thông báo",
+        "unfollow": "Bỏ theo dõi"
+    },
+
+    "User Settings Modal": {
+        "qr-code": "Mã QR",
+        "setting-privacy": "Cài đặt và quyền riêng tư",
+        "logout": "Đăng xuất"
+    },
+
+    "Create Modal": {
+        "create-new-post": "Tạo bài viết mới",
+        "drag-photos-here": "Kéo ảnh và video vào đây",
+        "select-from-computer": "Chọn từ máy tính"
+    },
+
+    "Post Actions Modal": {
+        "report": "Báo cáo",
+        "unfollow": "Bỏ theo dõi",
+        "add-to-favorites": "Thêm vào mục yêu thích",
+        "go-to-post": "Đi tới bài viết",
+        "share-to": "Chia sẻ lên...",
+        "copy-link": "Sao chép liên kết",
+        "about-account": "Giới thiệu về tài khoản này"
+    },
+
+    "Modal": {
+        "cancel": "Huỷ"
+    }
+}

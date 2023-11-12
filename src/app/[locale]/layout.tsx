@@ -28,7 +28,7 @@ export default async function RootLayout({ children, modal, params: { locale } }
     if (!isValidLocale) notFound();
 
     try {
-        messages = (await import(`../../messages/${locale}.json`)).default;
+        messages = (await import(`../languages/${locale}.json`)).default;
     } catch (error) {
         notFound();
     }

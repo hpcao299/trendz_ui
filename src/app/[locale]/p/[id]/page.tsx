@@ -2,6 +2,7 @@
 
 import { PostActions, PostCommentInput, PostsList } from '@/components';
 import { useAnimationControls } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import React, { useState } from 'react';
@@ -10,6 +11,7 @@ import { IoEllipsisHorizontal, IoHappyOutline } from 'react-icons/io5';
 const CopyrightFooter = dynamic(() => import('@/layouts/CopyrightFooter'), { ssr: false });
 
 const PostDetailPage = () => {
+    const t = useTranslations('Post');
     const [isLiked, setIsLiked] = useState<boolean>(false);
     const [commentText, setCommentText] = useState<string>('');
     const controls = useAnimationControls();
@@ -38,7 +40,7 @@ const PostDetailPage = () => {
                                 className="text-[rgb(38,38,38)] dark:text-darkText hover:opacity-50"
                                 role="button"
                             >
-                                Following
+                                {t('following')}
                             </div>
                         </div>
                         <div className="ml-2" role="button">
@@ -72,8 +74,8 @@ const PostDetailPage = () => {
                             </div>
                         </li>
                         <div className="flex flex-col items-center justify-center flex-1">
-                            <span className="text-2xl font-bold">No comments yet.</span>
-                            <div className="mt-3 text-sm">Start the conversation.</div>
+                            <span className="text-2xl font-bold">{t('no-comment')}</span>
+                            <div className="mt-3 text-sm">{t('start-conversation')}</div>
                         </div>
                     </ul>
                     <div className="py-1.5 px-4 border-t border-solid border-separator dark:border-darkSeparator">
@@ -82,7 +84,7 @@ const PostDetailPage = () => {
                             controls={controls}
                             handleToggleLiked={() => setIsLiked(!isLiked)}
                         />
-                        <div className="text-sm font-semibold">135 likes</div>
+                        <div className="text-sm font-semibold">135 {t('like-count')}</div>
                         <div className="text-[10px] uppercase mb-4 dark:text-darkSecondaryText">
                             AUGUST 13
                         </div>
@@ -101,7 +103,7 @@ const PostDetailPage = () => {
                                 onChange={value => setCommentText(value)}
                                 autoComplete="off"
                                 autoCorrect="off"
-                                placeholder="Add a comment..."
+                                placeholder={t('add-comment')}
                                 className="flex-1"
                                 rows={1}
                             />
@@ -110,7 +112,7 @@ const PostDetailPage = () => {
                                     type="submit"
                                     className="text-sm font-semibold text-primary hover:text-link dark:hover:text-darkLink"
                                 >
-                                    Post
+                                    {t('post-comment')}
                                 </button>
                             )}
                             <button
@@ -126,7 +128,7 @@ const PostDetailPage = () => {
             <div className="mt-12 border-b border-solid border-separator dark:border-darkSeparator"></div>
             <div className="pt-[6vh]">
                 <div className="mb-5 text-sm font-semibold text-secondaryText dark:text-darkSecondaryText">
-                    More posts from{' '}
+                    {t('more-post')}{' '}
                     <span className="text-black dark:text-darkText">t_thuy.1607</span>
                 </div>
                 <PostsList />

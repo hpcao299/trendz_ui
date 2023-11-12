@@ -1,6 +1,7 @@
 import config from '@/config';
 import { useThemeStore } from '@/stores';
 import { motion, useCycle } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import React, { useEffect, useRef } from 'react';
 import {
@@ -33,6 +34,7 @@ const slideHorizontalAnimation = {
 };
 
 const MenuModal: React.FC<MenuModalProps> = ({ open, handleCloseMenu }) => {
+    const t = useTranslations('Sidebar');
     const [darkMode, toggleDarkTheme] = useThemeStore(state => [
         state.darkMode,
         state.toggleDarkTheme,
@@ -81,13 +83,13 @@ const MenuModal: React.FC<MenuModalProps> = ({ open, handleCloseMenu }) => {
                     <Link href={config.routes.accountEdit} onClick={handleCloseMenu}>
                         <div className="flex items-center p-4 text-sm transition-opacity duration-100 rounded-lg hover:bg-lightHover dark:hover:bg-darkLightHover ease-hover">
                             <IoSettingsOutline className="w-5 h-5" />
-                            <span className="ml-3">Settings</span>
+                            <span className="ml-3">{t('settings')}</span>
                         </div>
                     </Link>
                     <Link href={`/t.thuy_1607/saved`} onClick={handleCloseMenu}>
                         <div className="flex items-center p-4 text-sm transition-opacity duration-100 rounded-lg hover:bg-lightHover dark:hover:bg-darkLightHover ease-hover">
                             <IoBookmarkOutline className="w-5 h-5" />
-                            <span className="ml-3">Saved</span>
+                            <span className="ml-3">{t('saved')}</span>
                         </div>
                     </Link>
                     <div
@@ -99,15 +101,15 @@ const MenuModal: React.FC<MenuModalProps> = ({ open, handleCloseMenu }) => {
                         ) : (
                             <IoSunnyOutline className="w-5 h-5" />
                         )}
-                        <span className="ml-3">Switch appearance</span>
+                        <span className="ml-3">{t('appearance')}</span>
                     </div>
                     <div className="flex items-center p-4 text-sm transition-opacity duration-100 rounded-lg cursor-pointer hover:bg-lightHover dark:hover:bg-darkLightHover ease-hover">
                         <IoWarningOutline className="w-5 h-5" />
-                        <span className="ml-3">Report a problem</span>
+                        <span className="ml-3">{t('problem')}</span>
                     </div>
                     <div className="h-[6px] bg-[rgba(219,219,219,.3)] dark:bg-[rgba(85,85,85,.3)] my-2 -mx-2"></div>
                     <div className="flex items-center p-4 text-sm transition-opacity duration-100 rounded-lg cursor-pointer hover:bg-lightHover dark:hover:bg-darkLightHover ease-hover">
-                        <span>Log out</span>
+                        <span>{t('logout')}</span>
                     </div>
                 </div>
                 <div className="w-1/2 appearance-menu">
@@ -119,7 +121,7 @@ const MenuModal: React.FC<MenuModalProps> = ({ open, handleCloseMenu }) => {
                         >
                             <IoChevronBack size={14} />
                         </div>
-                        <div className="flex-1 text-base font-semibold">Switch appearance</div>
+                        <div className="flex-1 text-base font-semibold">{t('appearance')}</div>
                         {darkMode ? <IoMoonOutline size={18} /> : <IoSunnyOutline size={18} />}
                     </div>
                     <div className="p-2">
@@ -127,7 +129,7 @@ const MenuModal: React.FC<MenuModalProps> = ({ open, handleCloseMenu }) => {
                             className="flex items-center justify-between p-4 text-sm transition-opacity duration-100 rounded-lg cursor-pointer hover:bg-lightHover dark:hover:bg-darkLightHover ease-hover"
                             onClick={toggleDarkTheme}
                         >
-                            <span>Dark mode</span>
+                            <span>{t('dark-mode')}</span>
                             <input type="checkbox" name="theme" hidden className="hidden" />
                             <div className="input-checkbox-theme-mode" />
                         </div>

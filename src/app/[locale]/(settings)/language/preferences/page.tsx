@@ -1,12 +1,15 @@
+import { useTranslations } from 'next-intl';
 import { IoCheckmarkCircle } from 'react-icons/io5';
 
 const LanguagePreferences = () => {
+    const t = useTranslations('Settings');
+
     return (
         <div className="mt-8 ml-12 mr-16">
-            <div className="mb-4 text-2xl">Language preferences</div>
-            <div className="text-base font-bold">App language</div>
+            <div className="mb-4 text-2xl">{t('lan-preferences')}</div>
+            <div className="text-base font-bold">{t('app-language')}</div>
             <div className="mt-2 mb-5 text-sm text-secondaryText dark:text-secondaryText">
-                See buttons, titles, and other texts on Instagram in your preferred language.
+                {t('app-language-desc')}
             </div>
             <div>
                 <input
