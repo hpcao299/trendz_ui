@@ -23,6 +23,7 @@ const CopyrightFooter: React.FC = () => {
                 >
                     <option value="en">English</option>
                     <option value="vi">Tiếng Việt</option>
+                    <option value="zh">中国人</option>
                 </select>
             </div>
             <span className="ml-4">© 2023 Trendz from Jack Cao</span>

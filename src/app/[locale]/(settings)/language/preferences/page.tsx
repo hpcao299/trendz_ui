@@ -46,6 +46,11 @@ const LanguagePreferences = () => {
                         isActive={locale === 'vi'}
                         onClick={() => handleChangeLanguage('vi')}
                     />
+                    <LanguageOption
+                        title="中国人"
+                        isActive={locale === 'zh'}
+                        onClick={() => handleChangeLanguage('zh')}
+                    />
                 </div>
             </div>
         </div>
