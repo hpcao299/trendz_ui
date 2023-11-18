@@ -31,12 +31,18 @@ const Menu: React.FC = () => {
                         <IoMenuOutline className="absolute left-3 top-1/2 -translate-y-1/2 w-[26px] h-[26px] transition-transform duration-200 ease-icon group-hover:scale-[105%]" />
                     )}
                     <span
-                        className={classNames('ml-10.5 text-base', {
+                        className={classNames('ml-10.5 text-base relative h-6 flex-1', {
                             'font-bold': open,
                             hidden: isNarrowed,
                         })}
                     >
-                        {t('menu')}
+                        <span
+                            className={classNames('absolute top-0 bottom-0 left-0 right-0 w-max', {
+                                'animate-fade-in-opacity': !isNarrowed,
+                            })}
+                        >
+                            {t('menu')}
+                        </span>
                     </span>
                 </div>
 

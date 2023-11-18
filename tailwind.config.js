@@ -80,6 +80,7 @@ module.exports = {
             animation: {
                 'fade-in-tooltip': 'fadeIn .35s ease .8s',
                 'fade-out-tooltip': 'fadeOut .5s ease',
+                'fade-in-opacity': 'fadeInOpacity cubic-bezier(0.4, 0, 0.2, 1) .4s',
                 'scale-small': 'scaleSmall .12s ease',
                 'loader-border': 'loaderBorder 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite',
                 'loader-point': 'loaderPoint 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite',
@@ -93,6 +94,10 @@ module.exports = {
                     '0%': { opacity: 1, transform: 'scale(1)' },
                     '60%': { opacity: 0 },
                     '100%': { opacity: 0, transform: 'scale(0)' },
+                },
+                fadeInOpacity: {
+                    '0%': { opacity: 0 },
+                    '100%': { opacity: 1 },
                 },
                 scaleSmall: {
                     '0%': { transform: 'scale(1.08)' },
