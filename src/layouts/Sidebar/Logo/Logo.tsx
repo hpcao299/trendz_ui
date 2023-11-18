@@ -3,7 +3,7 @@ import { useLayoutStore } from '@/stores';
 import classNames from 'classnames';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from 'next-intl/link';
 import React from 'react';
 
 const wordLogoMotion = {

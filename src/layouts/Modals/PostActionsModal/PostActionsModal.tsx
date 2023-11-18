@@ -1,22 +1,25 @@
 import { ModalActionsList } from '@/components';
 import { ModalActionItem } from '@/types';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const PostActionsModal: React.FC = () => {
+    const t = useTranslations('Post Actions Modal');
+
     const actions: ModalActionItem[] = [
         {
-            title: 'Report',
+            title: t('report'),
             color: 'warn',
         },
         {
-            title: 'Unfollow',
+            title: t('unfollow'),
             color: 'warn',
         },
-        { title: 'Add to favorites' },
-        { title: 'Go to post' },
-        { title: 'Share to...' },
-        { title: 'Copy link' },
-        { title: 'About this account' },
+        { title: t('add-to-favorites') },
+        { title: t('go-to-post') },
+        { title: t('share-to') },
+        { title: t('copy-link') },
+        { title: t('about-account') },
     ];
 
     return <ModalActionsList actions={actions} showCancelAction />;

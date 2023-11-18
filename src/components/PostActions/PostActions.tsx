@@ -2,7 +2,7 @@
 
 import classNames from 'classnames';
 import { AnimationControls, motion } from 'framer-motion';
-import Link from 'next/link';
+import Link from 'next-intl/link';
 import React from 'react';
 import {
     IoBookmarkOutline,
