@@ -1,6 +1,8 @@
+'use client';
+
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from 'next-intl/link';
 import React from 'react';
 
 const FeedSidebar: React.FC = () => {
@@ -60,7 +62,7 @@ const FeedSidebar: React.FC = () => {
                                         {t('suggested')}
                                     </div>
                                 </div>
-                                <button className="text-xs font-semibold text-primary hover:text-black">
+                                <button className="text-xs font-semibold text-primary hover:text-black dark:hover:text-darkLink">
                                     {t('follow')}
                                 </button>
                             </div>

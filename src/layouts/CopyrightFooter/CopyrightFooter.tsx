@@ -1,11 +1,11 @@
 'use client';
 
+import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from 'next-intl/client';
-import { useParams } from 'next/navigation';
 import React from 'react';
 
 const CopyrightFooter: React.FC = () => {
-    const { locale } = useParams();
+    const locale = useLocale();
     const router = useRouter();
     const pathname = usePathname();
 

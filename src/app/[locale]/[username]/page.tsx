@@ -7,7 +7,7 @@ import { useLayoutStore } from '@/stores';
 import { NextPage } from 'next';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from 'next-intl/link';
 import { IoChevronDown, IoSettingsOutline } from 'react-icons/io5';
 
 interface ProfilePageProps {

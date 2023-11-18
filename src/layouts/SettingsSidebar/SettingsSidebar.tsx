@@ -1,7 +1,7 @@
 'use client';
 
 import config from '@/config';
-import Link from 'next/link';
+import Link from 'next-intl/link';
 import React from 'react';
 import { usePathname } from 'next-intl/client';
 import classNames from 'classnames';

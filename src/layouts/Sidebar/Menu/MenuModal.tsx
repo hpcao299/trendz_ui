@@ -2,7 +2,7 @@ import config from '@/config';
 import { useThemeStore } from '@/stores';
 import { motion, useCycle } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
+import Link from 'next-intl/link';
 import React, { useEffect, useRef } from 'react';
 import {
     IoBookmarkOutline,

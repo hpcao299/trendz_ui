@@ -5,7 +5,7 @@ import { useLayoutStore } from '@/stores';
 import { motion, useAnimationControls } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from 'next-intl/link';
 import Carousel from 'nuka-carousel';
 import React, { useRef, useState } from 'react';
 import { IoEllipsisHorizontal, IoHeart } from 'react-icons/io5';

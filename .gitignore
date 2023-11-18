@@ -2,6 +2,9 @@
 
 /.vscode
 
+# i18n languages
+/src/app/languages/
+
 # dependencies
 /node_modules
 /.pnp

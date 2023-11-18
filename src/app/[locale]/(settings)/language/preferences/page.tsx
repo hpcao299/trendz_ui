@@ -1,8 +1,7 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next-intl/client';
-import { useParams } from 'next/navigation';
 import { IoCheckmarkCircle } from 'react-icons/io5';
 
 interface LanguageOptionProps {
@@ -13,7 +12,7 @@ interface LanguageOptionProps {
 
 const LanguagePreferences = () => {
     const t = useTranslations('Settings');
-    const { locale } = useParams();
+    const locale = useLocale();
     const router = useRouter();
     const pathname = usePathname();
 

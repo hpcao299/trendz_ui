@@ -1,8 +1,8 @@
 import { PostActions, PostCommentInput } from '@/components';
 import { useAnimationControls } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import Link from 'next-intl/link';
+import { useRouter } from 'next-intl/client';
 import React, { useState } from 'react';
 import { IoEllipsisHorizontal, IoHappyOutline, IoHeartOutline } from 'react-icons/io5';
 import CloseButton from '../CloseButton';
