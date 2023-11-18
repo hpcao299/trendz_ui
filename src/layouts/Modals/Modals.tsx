@@ -39,6 +39,10 @@ const Modal: React.FC = () => {
         const handleClickOutsideModal = (e: MouseEvent) => {
             if (!modalRef.current?.contains(e.target as Node)) {
                 hideModal();
+
+                if (typeof modalProps?.handleClose === 'function') {
+                    modalProps.handleClose();
+                }
             }
         };
 

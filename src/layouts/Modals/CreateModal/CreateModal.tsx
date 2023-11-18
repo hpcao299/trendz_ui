@@ -7,11 +7,19 @@ import { useTranslations } from 'next-intl';
 
 const CreateModal: React.FC = () => {
     const t = useTranslations('Create Modal');
-    const hideModal = useLayoutStore(state => state.hideModal);
+    const [hideModal, setIsAvailableBackward] = useLayoutStore(state => [
+        state.hideModal,
+        state.setIsAvailableBackward,
+    ]);
+
+    const handleClose = () => {
+        setIsAvailableBackward(true);
+        hideModal();
+    };
 
     return (
         <>
-            <CloseButton onClose={hideModal} />
+            <CloseButton onClose={handleClose} />
             <div className="overflow-y-auto bg-white dark:bg-darkBackground max-h-modal rounded-xl w-[750px] animate-scale-small">
                 <div className="flex items-center justify-center border-b border-solid h-11 border-separator dark:border-darkElevatedSeparator">
                     <span className="text-base font-semibold">{t('create-new-post')}</span>

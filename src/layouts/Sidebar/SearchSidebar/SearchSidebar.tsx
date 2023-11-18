@@ -1,10 +1,10 @@
 import { useLayoutStore } from '@/stores';
 import { AnimatePresence, motion } from 'framer-motion';
-import Image from 'next/image';
-import Link from 'next-intl/link';
-import React, { useEffect, useRef } from 'react';
-import { IoCloseOutline } from 'react-icons/io5';
 import { useTranslations } from 'next-intl';
+import Link from 'next-intl/link';
+import Image from 'next/image';
+import React, { memo, useEffect, useRef } from 'react';
+import { IoCloseOutline } from 'react-icons/io5';
 
 const searchSidebarMotion = {
     rest: { x: '-100%', transition: { duration: 0.3, ease: 'easeIn' } },
@@ -19,10 +19,10 @@ const searchSidebarMotion = {
 
 const SearchSidebar: React.FC = () => {
     const t = useTranslations('Sidebar');
-    const [isNarrowed, setIsNarrowed, backwardLinkIndex] = useLayoutStore(state => [
+    const [isNarrowed, setIsNarrowed, setIsAvailableBackward] = useLayoutStore(state => [
         state.sidebar.isNarrowed,
         state.setIsNarrowed,
-        state.backwardLinkIndex,
+        state.setIsAvailableBackward,
     ]);
     const wrapper = useRef<HTMLDivElement>(null);
 
@@ -31,7 +31,7 @@ const SearchSidebar: React.FC = () => {
             // if click outside the sidebar
             if (!wrapper.current?.contains(e.target as Node)) {
                 setIsNarrowed(false);
-                backwardLinkIndex();
+                setIsAvailableBackward(true);
             }
         };
 
@@ -108,4 +108,4 @@ const SearchSidebar: React.FC = () => {
     );
 };
 
-export default SearchSidebar;
+export default memo(SearchSidebar);
