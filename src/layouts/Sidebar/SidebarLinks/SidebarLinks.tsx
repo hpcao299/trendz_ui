@@ -70,6 +70,7 @@ const SidebarLinks: React.FC = () => {
                         handleClose() {
                             setIsAvailableBackward(true);
                         },
+                        showCloseBtn: true,
                     });
                 },
                 icon: IoAddCircleOutline,

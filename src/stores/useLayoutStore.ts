@@ -4,6 +4,7 @@ type ModalType = 'Create' | 'Follow Account' | 'Post Actions' | 'User Settings';
 
 interface ModalHandleClose {
     handleClose?: () => void;
+    showCloseBtn?: boolean;
     [propName: string]: any;
 }
 

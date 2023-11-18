@@ -1,5 +1,6 @@
 'use client';
 
+import CloseButton from '@/layouts/Modals/CloseButton';
 import React, { useEffect, useRef } from 'react';
 
 interface BaseModalProps {
@@ -34,6 +35,7 @@ const BaseModal: React.FC<BaseModalProps> = ({ children, isOpen, onRequestClose 
             <div ref={modalRef} className="m-auto">
                 {children}
             </div>
+            <CloseButton />
         </div>
     ) : null;
 };

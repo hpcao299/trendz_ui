@@ -2,6 +2,7 @@
 
 import { useLayoutStore } from '@/stores';
 import React, { Suspense, useEffect, useRef } from 'react';
+import CloseButton from './CloseButton';
 import LoadingModal from './LoadingModal';
 
 const CreateModal = React.lazy(() => import('./CreateModal'));
@@ -60,6 +61,7 @@ const Modal: React.FC = () => {
             <div ref={modalRef} className="m-auto">
                 <Suspense fallback={<LoadingModal />}>{renderModal()}</Suspense>
             </div>
+            {modalProps?.showCloseBtn && <CloseButton />}
         </div>
     ) : null;
 };
