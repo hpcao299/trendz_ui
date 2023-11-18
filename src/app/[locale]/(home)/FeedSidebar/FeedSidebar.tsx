@@ -1,8 +1,13 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from 'next-intl/link';
 import React from 'react';
 
 const FeedSidebar: React.FC = () => {
+    const t = useTranslations('Feed Sidebar');
+
     return (
         <div className="pl-16 mt-9">
             <div className="w-feed-sidebar-width">
@@ -24,15 +29,17 @@ const FeedSidebar: React.FC = () => {
                             Thanh Thuý
                         </div>
                     </div>
-                    <button className="text-xs font-semibold text-primary">Switch</button>
+                    <button className="text-xs font-semibold text-primary">
+                        {t('switch-account')}
+                    </button>
                 </div>
                 <div className="mt-6 mb-2 font-semibold">
                     <div className="flex items-center justify-between px-4 py-1 text-sm">
                         <span className="text-[rgb(115,115,115)] dark:text-[rgb(168,168,168)]">
-                            Suggested for you
+                            {t('suggested')}
                         </span>
                         <Link href="/" className="hover:opacity-50">
-                            See All
+                            {t('see-all')}
                         </Link>
                     </div>
                     <div className="py-2">
@@ -52,11 +59,11 @@ const FeedSidebar: React.FC = () => {
                                         t_thuy.1607
                                     </Link>
                                     <div className="text-[#737373] dark:text-[rgb(168,168,168)] font-normal">
-                                        Suggested for you
+                                        {t('suggested')}
                                     </div>
                                 </div>
-                                <button className="text-xs font-semibold text-primary hover:text-black">
-                                    Follow
+                                <button className="text-xs font-semibold text-primary hover:text-black dark:hover:text-darkLink">
+                                    {t('follow')}
                                 </button>
                             </div>
                         ))}
@@ -65,22 +72,22 @@ const FeedSidebar: React.FC = () => {
                 <ul className="text-xs text-[rgb(199,199,199)] dark:text-[#737373] flex mt-6">
                     <li className="after:text-[rgb(199,199,199)] dark:text-[#737373] after:rounded-full after:mx-[3px] after:content-['\00B7'] flex items-center last:after:hidden">
                         <Link href="/" className="hover:underline">
-                            About
+                            {t('about')}
                         </Link>
                     </li>
                     <li className="after:text-[rgb(199,199,199)] dark:text-[#737373] after:rounded-full after:mx-[3px] after:content-['\00B7'] flex items-center last:after:hidden">
                         <Link href="/" className="hover:underline">
-                            Help
+                            {t('help')}
                         </Link>
                     </li>
                     <li className="after:text-[rgb(199,199,199)] dark:text-[#737373] after:rounded-full after:mx-[3px] after:content-['\00B7'] flex items-center last:after:hidden">
                         <Link href="/" className="hover:underline">
-                            API
+                            {t('api')}
                         </Link>
                     </li>
                     <li className="after:text-[rgb(199,199,199)] dark:text-[#737373] after:rounded-full after:mx-[3px] after:content-['\00B7'] flex items-center last:after:hidden">
                         <Link href="/" className="hover:underline">
-                            Privacy
+                            {t('privacy')}
                         </Link>
                     </li>
                 </ul>

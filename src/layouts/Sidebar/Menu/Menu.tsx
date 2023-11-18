@@ -5,8 +5,10 @@ import classNames from 'classnames';
 import React, { useState } from 'react';
 import { IoMenu, IoMenuOutline } from 'react-icons/io5';
 import MenuModal from './MenuModal';
+import { useTranslations } from 'next-intl';
 
 const Menu: React.FC = () => {
+    const t = useTranslations('Sidebar');
     const isNarrowed = useLayoutStore(state => state.sidebar.isNarrowed);
     const [open, setOpen] = useState<boolean>(false);
 
@@ -34,7 +36,7 @@ const Menu: React.FC = () => {
                             hidden: isNarrowed,
                         })}
                     >
-                        Menu
+                        {t('menu')}
                     </span>
                 </div>
 

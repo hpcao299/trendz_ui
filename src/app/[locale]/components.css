@@ -12,11 +12,11 @@ button:disabled {
 }
 
 .btn-primary {
-    @apply text-white bg-primary hover:bg-darkPrimary;
+    @apply text-white bg-primary hover:bg-darkPrimary !important;
 }
 
 .btn-secondary {
-    @apply text-black bg-btnBackground hover:bg-btnHover dark:bg-darkBtnBackground dark:hover:bg-darkBtnHover dark:text-darkText;
+    @apply text-black bg-btnBackground hover:bg-btnHover dark:bg-darkBtnBackground dark:hover:bg-darkBtnHover dark:text-darkText !important;
 }
 
 .input-checkbox-theme-mode {

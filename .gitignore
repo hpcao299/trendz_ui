@@ -2,6 +2,9 @@
 
 /.vscode
 
+# i18n languages
+/src/app/languages/
+
 # dependencies
 /node_modules
 /.pnp
@@ -28,6 +31,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
+/.env
 
 # vercel
 .vercel

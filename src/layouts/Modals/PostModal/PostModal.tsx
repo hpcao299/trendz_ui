@@ -1,14 +1,16 @@
 import { PostActions, PostCommentInput } from '@/components';
 import { useAnimationControls } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import Link from 'next-intl/link';
+import { useRouter } from 'next-intl/client';
 import React, { useState } from 'react';
 import { IoEllipsisHorizontal, IoHappyOutline, IoHeartOutline } from 'react-icons/io5';
 import CloseButton from '../CloseButton';
+import { useTranslations } from 'next-intl';
 
 const PostModal: React.FC = () => {
     const router = useRouter();
+    const t = useTranslations('Post');
     const [isLiked, setIsLiked] = useState<boolean>(false);
     const [commentText, setCommentText] = useState<string>('');
     const controls = useAnimationControls();
@@ -122,13 +124,13 @@ const PostModal: React.FC = () => {
                                                 <div className="relative">
                                                     <span className="mr-3">8w</span>
                                                     <span className="mr-3 font-semibold">
-                                                        3 likes
+                                                        3 {t('like-count')}
                                                     </span>
                                                     <span
                                                         className="mr-3 font-semibold"
                                                         role="button"
                                                     >
-                                                        Reply
+                                                        {t('reply-comment')}
                                                     </span>
                                                     <div
                                                         role="button"
@@ -151,7 +153,7 @@ const PostModal: React.FC = () => {
                                     <button className="flex items-center">
                                         <div className="h-[1px] w-6 border-b border-solid border-secondaryText dark:border-darkSecondaryText align-middle mr-4"></div>
                                         <span className="text-xs font-semibold text-secondaryText dark:text-darkSecondaryText">
-                                            View replies (3)
+                                            {t('view-reply')} (3)
                                         </span>
                                     </button>
                                 </div>
@@ -166,7 +168,7 @@ const PostModal: React.FC = () => {
                                 controls={controls}
                             />
                         </div>
-                        <div className="text-sm font-semibold">53 likes</div>
+                        <div className="text-sm font-semibold">53 {t('like-count')}</div>
                         <div className="text-xs text-secondary">26 minutes ago</div>
                     </div>
                     <form className="pt-1.5 pr-4 flex items-center border-t border-solid border-separator dark:border-darkSeparator pb-1.5">
@@ -178,12 +180,12 @@ const PostModal: React.FC = () => {
                             value={commentText}
                             autoComplete="off"
                             autoCorrect="off"
-                            placeholder="Add a comment..."
+                            placeholder={t('add-comment')}
                             className="flex-1"
                             rows={1}
                         />
                         <button type="submit" className="ml-2 text-sm font-semibold text-primary">
-                            Post
+                            {t('post-comment')}
                         </button>
                     </form>
                 </div>

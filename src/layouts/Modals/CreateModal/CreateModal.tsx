@@ -3,8 +3,10 @@
 import { useLayoutStore } from '@/stores';
 import React from 'react';
 import CloseButton from '../CloseButton';
+import { useTranslations } from 'next-intl';
 
 const CreateModal: React.FC = () => {
+    const t = useTranslations('Create Modal');
     const hideModal = useLayoutStore(state => state.hideModal);
 
     return (
@@ -12,7 +14,7 @@ const CreateModal: React.FC = () => {
             <CloseButton onClose={hideModal} />
             <div className="overflow-y-auto bg-white dark:bg-darkBackground max-h-modal rounded-xl w-[750px] animate-scale-small">
                 <div className="flex items-center justify-center border-b border-solid h-11 border-separator dark:border-darkElevatedSeparator">
-                    <span className="text-base font-semibold">Create new post</span>
+                    <span className="text-base font-semibold">{t('create-new-post')}</span>
                 </div>
                 <div className="flex flex-col items-center justify-center p-6 aspect-square">
                     <svg
@@ -37,13 +39,12 @@ const CreateModal: React.FC = () => {
                             fill="currentColor"
                         ></path>
                     </svg>
-                    <div className="mt-3 text-xl">Drag photos here to create post</div>
+                    <div className="mt-3 text-xl">{t('drag-photos-here')}</div>
                     <div className="mt-5">
-                        <label
-                            htmlFor="images"
-                            className="px-4 py-2 text-sm text-white rounded-lg cursor-pointer bg-primary active:bg-darkPrimary"
-                        >
-                            Select from computer
+                        <label htmlFor="images">
+                            <button className="btn-sm btn-primary">
+                                {t('select-from-computer')}
+                            </button>
                         </label>
                         <input
                             id="images"
