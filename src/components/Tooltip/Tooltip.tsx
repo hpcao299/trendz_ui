@@ -42,7 +42,7 @@ const Tooltip: React.FC<TooltipProps> = ({ title, children, isAvailable = true }
                             exit="rest"
                             className="absolute select-none pointer-events-none -translate-y-1/2 left-[calc(100%+16px)] top-1/2"
                         >
-                            <div className="relative origin-center px-2.5 py-1 bg-white rounded-lg shadow-tooltip after:absolute after:content-[''] after:top-1/2 after:-translate-y-1/2 after:border-8 after:border-r-white after:border-transparent after:right-full whitespace-nowrap">
+                            <div className="relative origin-center px-2.5 py-1 bg-white dark:bg-darkBackground dark:text-darkText rounded-lg shadow-tooltip after:absolute after:content-[''] after:top-1/2 after:-translate-y-1/2 after:border-8 after:border-r-white dark:after:border-r-darkBackground after:border-transparent after:right-full whitespace-nowrap">
                                 <span className="text-sm">{title}</span>
                             </div>
                         </motion.div>
