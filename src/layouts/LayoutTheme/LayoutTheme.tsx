@@ -3,39 +3,16 @@
 import { useThemeStore } from '@/stores';
 import React, { useEffect } from 'react';
 
-interface LayoutThemeProps {
-    children?: React.ReactNode;
-}
-
-const LayoutTheme: React.FC<LayoutThemeProps> = ({ children }) => {
-    const [darkMode, hasSetInitialTheme, setLightTheme, setDarkTheme] = useThemeStore(state => [
-        state.darkMode,
-        state.hasSetInitialTheme,
-        state.setLightTheme,
-        state.setDarkTheme,
-    ]);
+const LayoutTheme: React.FC = () => {
+    const darkMode = useThemeStore(state => state.darkMode);
 
     useEffect(() => {
-        if (hasSetInitialTheme) {
-            if (darkMode) {
-                localStorage.setItem('darkMode', 'true');
-            } else {
-                localStorage.setItem('darkMode', 'false');
-            }
-        } else {
-            if (JSON.parse(localStorage.getItem('darkMode') || '')) {
-                setDarkTheme();
-            } else {
-                setLightTheme();
-            }
-        }
+        const documentElement = document.documentElement;
+        documentElement.classList.remove(darkMode ? 'light' : 'dark');
+        documentElement.classList.add(darkMode ? 'dark' : 'light');
     }, [darkMode]);
 
-    return (
-        <body className={darkMode ? 'dark' : 'light'}>
-            <div className="font-system dark:text-darkText dark:bg-black">{children}</div>
-        </body>
-    );
+    return null;
 };
 
 export default LayoutTheme;

@@ -39,12 +39,13 @@ export default async function RootLayout({ children, modal, params: { locale } }
     return (
         <html lang={locale}>
             <NextIntlClientProvider locale={locale} messages={messages.default}>
-                <LayoutTheme>
+                <LayoutTheme />
+                <body>
                     <Sidebar />
                     <main className="ml-sidebar">{children}</main>
                     <Modals />
                     {modal}
-                </LayoutTheme>
+                </body>
             </NextIntlClientProvider>
         </html>
     );

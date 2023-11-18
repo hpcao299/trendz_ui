@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    @apply font-system dark:text-darkText dark:bg-black;
+}
+
 .filter-menu {
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
 }

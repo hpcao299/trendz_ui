@@ -85,7 +85,7 @@ const PostItem: React.FC = () => {
         <article className="pb-4 mb-6 border-b border-solid border-separator dark:border-darkSeparator">
             <div className="flex items-center justify-between pb-3 pl-1">
                 <div className="flex">
-                    <div className="relative rounded-full bg-white p-0.5 mr-3">
+                    <div className="relative rounded-full bg-white dark:bg-black p-0.5 mr-3">
                         <div className="after:absolute relative after:w-full after:h-full after:border after:border-solid after:border-[rgba(0,0,0,0.0975)] after:top-0 after:left-0 after:rounded-full">
                             <Image
                                 src="/example_profile.jpeg"
