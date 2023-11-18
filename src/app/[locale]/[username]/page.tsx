@@ -5,8 +5,9 @@ import { PostsList } from '@/components';
 import { CopyrightFooter } from '@/layouts';
 import { useLayoutStore } from '@/stores';
 import { NextPage } from 'next';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from 'next-intl/link';
 import { IoChevronDown, IoSettingsOutline } from 'react-icons/io5';
 
 interface ProfilePageProps {
@@ -14,6 +15,7 @@ interface ProfilePageProps {
 }
 
 const ProfilePage: NextPage<ProfilePageProps> = ({ params }) => {
+    const t = useTranslations('Profile');
     const showModal = useLayoutStore(state => state.showModal);
 
     return (
@@ -63,13 +65,13 @@ const ProfilePage: NextPage<ProfilePageProps> = ({ params }) => {
                         </div>
                         <ul className="flex items-center gap-10 mb-5 text-base">
                             <li>
-                                <span className="font-semibold">0</span> posts
+                                <span className="font-semibold">0</span> {t('post-count')}
                             </li>
                             <li>
-                                <span className="font-semibold">28</span> posts
+                                <span className="font-semibold">28</span> {t('follower-count')}
                             </li>
                             <li>
-                                <span className="font-semibold">135</span> following
+                                <span className="font-semibold">135</span> {t('following-count')}
                             </li>
                         </ul>
                         <div>
@@ -81,15 +83,13 @@ const ProfilePage: NextPage<ProfilePageProps> = ({ params }) => {
                 <div className="border-t border-solid border-separator dark:border-darkSeparator">
                     <div className="max-w-[350px] mx-auto my-[60px] flex flex-col items-center justify-center text-center">
                         <div className="bg-photo h-[62px] w-[62px]"></div>
-                        <div className="mt-5 mb-4 text-3xl font-extrabold">Share Photos</div>
-                        <div className="mb-5 text-sm">
-                            When you share photos, they will appear on your profile.
-                        </div>
+                        <div className="mt-5 mb-4 text-3xl font-extrabold">{t('share-photo')}</div>
+                        <div className="mb-5 text-sm">{t('share-photo-desc')}</div>
                         <div
                             role="button"
                             className="text-sm font-semibold text-primary hover:text-black dark:hover:text-darkLink"
                         >
-                            Share your first photo
+                            {t('share-photo-link')}
                         </div>
                     </div>
                     {/* <div className="mt-1 mb-6">

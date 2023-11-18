@@ -4,8 +4,9 @@ import { Tooltip } from '@/components';
 import config from '@/config';
 import { useLayoutStore } from '@/stores';
 import classNames from 'classnames';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from 'next-intl/link';
 import React, { useMemo } from 'react';
 import {
     IoAddCircle,
@@ -22,6 +23,7 @@ import Menu from './Menu';
 import SearchSidebar from './SearchSidebar';
 
 const Sidebar: React.FC = () => {
+    const t = useTranslations('Sidebar');
     const [
         { isNarrowed, activeLinkIndex, previousLinkIndex },
         setIsNarrowed,
@@ -36,18 +38,18 @@ const Sidebar: React.FC = () => {
         state.showModal,
     ]);
 
-    console.log({ activeLinkIndex, previousLinkIndex });
+    // console.log({ activeLinkIndex, previousLinkIndex });
 
     const links = useMemo(
         () => [
             {
-                title: 'Home',
+                title: t('home'),
                 href: config.routes.home,
                 icon: IoHomeOutline,
                 activeIcon: IoHomeSharp,
             },
             {
-                title: 'Search',
+                title: t('search'),
                 href: '#',
                 onClick: (e: React.MouseEvent<HTMLAnchorElement>) => {
                     e.preventDefault();
@@ -57,13 +59,13 @@ const Sidebar: React.FC = () => {
                 activeIcon: IoSearch,
             },
             {
-                title: 'Explore',
+                title: t('explore'),
                 href: config.routes.explore,
                 icon: IoCompassOutline,
                 activeIcon: IoCompass,
             },
             {
-                title: 'Create',
+                title: t('create'),
                 href: '#',
                 onClick: (e: React.MouseEvent<HTMLAnchorElement>) => {
                     e.preventDefault();
@@ -73,7 +75,7 @@ const Sidebar: React.FC = () => {
                 activeIcon: IoAddCircle,
             },
             {
-                title: 'Profile · t_thuy.1607',
+                title: `${t('profile')} · t_thuy.1607`,
                 href: '/t_thuy.1607',
                 imageUrl: '/example_profile.jpeg',
                 profile: true,
@@ -144,7 +146,7 @@ const Sidebar: React.FC = () => {
                                                         'font-bold': isActive,
                                                     })}
                                                 >
-                                                    Profile
+                                                    {t('profile')}
                                                 </span>
                                             </li>
                                         ) : (

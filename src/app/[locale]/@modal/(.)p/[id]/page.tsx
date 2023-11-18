@@ -2,7 +2,7 @@
 
 import { BaseModal } from '@/components';
 import PostModal from '@/layouts/Modals/PostModal';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next-intl/client';
 import React from 'react';
 
 const PostModalPage = () => {

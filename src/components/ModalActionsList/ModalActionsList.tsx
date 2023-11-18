@@ -1,6 +1,7 @@
 import { useLayoutStore } from '@/stores';
 import { ModalActionItem } from '@/types';
 import classNames from 'classnames';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 interface ModalActionsList {
@@ -16,6 +17,7 @@ const ModalActionsList: React.FC<ModalActionsList> = ({
     warnCancelAction,
     onClose,
 }) => {
+    const t = useTranslations('Modal');
     const hideModal = useLayoutStore(state => state.hideModal);
 
     const handleClose = () => {
@@ -49,7 +51,7 @@ const ModalActionsList: React.FC<ModalActionsList> = ({
                     )}
                     onClick={handleClose}
                 >
-                    Cancel
+                    {t('cancel')}
                 </button>
             )}
         </div>

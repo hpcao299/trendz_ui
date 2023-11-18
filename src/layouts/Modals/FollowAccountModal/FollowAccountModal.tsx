@@ -1,9 +1,11 @@
 import { useLayoutStore } from '@/stores';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import React from 'react';
 import { IoCloseOutline, IoStarOutline } from 'react-icons/io5';
 
 const FollowAccountModal: React.FC = () => {
+    const t = useTranslations('Follow Account Modal');
     const hideModal = useLayoutStore(state => state.hideModal);
 
     const handleCloseModal = () => {
@@ -27,20 +29,20 @@ const FollowAccountModal: React.FC = () => {
                     className="flex items-center justify-between p-4 text-sm transition-colors duration-100 hover:bg-lightHover dark:hover:bg-darkLightHover"
                     role="button"
                 >
-                    <span>Add to favorites</span>
+                    <span>{t('add-to-favorite')}</span>
                     <IoStarOutline size={20} />
                 </li>
                 <li
                     className="flex items-center justify-between p-4 text-sm transition-colors duration-100 hover:bg-lightHover dark:hover:bg-darkLightHover"
                     role="button"
                 >
-                    <span>Mute</span>
+                    <span>{t('mute')}</span>
                 </li>
                 <li
                     className="flex items-center justify-between p-4 text-sm transition-colors duration-100 hover:bg-lightHover dark:hover:bg-darkLightHover"
                     role="button"
                 >
-                    <span>Unfollow</span>
+                    <span>{t('unfollow')}</span>
                 </li>
             </ul>
             <button className="absolute right-2 top-2 z-5" onClick={handleCloseModal}>

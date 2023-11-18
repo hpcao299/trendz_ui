@@ -1,9 +1,10 @@
 import { useLayoutStore } from '@/stores';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from 'next-intl/link';
 import React, { useEffect, useRef } from 'react';
 import { IoCloseOutline } from 'react-icons/io5';
+import { useTranslations } from 'next-intl';
 
 const searchSidebarMotion = {
     rest: { x: '-100%', transition: { duration: 0.3, ease: 'easeIn' } },
@@ -17,6 +18,7 @@ const searchSidebarMotion = {
 };
 
 const SearchSidebar: React.FC = () => {
+    const t = useTranslations('Sidebar');
     const [isNarrowed, setIsNarrowed, backwardLinkIndex] = useLayoutStore(state => [
         state.sidebar.isNarrowed,
         state.setIsNarrowed,
@@ -53,23 +55,25 @@ const SearchSidebar: React.FC = () => {
                     className="fixed top-0 z-30 h-screen py-2 overflow-y-auto bg-white border-r border-solid dark:border-darkSeparator dark:bg-black w-search-sidebar shadow-searchSidebar left-search-sidebar-left-spacing border-separator rounded-r-2xl"
                     ref={wrapper}
                 >
-                    <div className="pl-6 pt-3 pr-[14px] pb-9 text-2xl font-semibold">Search</div>
+                    <div className="pl-6 pt-3 pr-[14px] pb-9 text-2xl font-semibold">
+                        {t('search')}
+                    </div>
                     <div className="mx-4 mb-6">
                         <input
                             type="text"
-                            placeholder="Search"
+                            placeholder={t('search')}
                             className="py-[3px] px-4 rounded-lg bg-[#efefef] outline-none w-full h-10 dark:bg-highlightBackground"
                             autoCapitalize="none"
                         />
                     </div>
                     <div className="pt-3 border-t border-solid border-separator dark:border-darkSeparator">
                         <div className="flex items-center justify-between pt-1 mx-6 mb-2">
-                            <span className="text-base font-semibold">Recent</span>
+                            <span className="text-base font-semibold">{t('recent')}</span>
                             <div
                                 role="button"
                                 className="text-sm font-semibold text-primary hover:text-black dark:hover:text-darkLink"
                             >
-                                Clear all
+                                {t('clear-all')}
                             </div>
                         </div>
                         {Array.from({ length: 20 }).map((a, i) => (
