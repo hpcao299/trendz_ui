@@ -1,4 +1,4 @@
-import { LayoutTheme, Sidebar } from '@/layouts';
+import { LayoutTheme } from '@/layouts';
 import { locales } from '@/navigation';
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
@@ -41,8 +41,7 @@ export default async function RootLayout({ children, modal, params: { locale } }
             <NextIntlClientProvider locale={locale} messages={messages.default}>
                 <LayoutTheme />
                 <body>
-                    <Sidebar />
-                    <main className="ml-sidebar">{children}</main>
+                    {children}
                     <Modals />
                     {modal}
                 </body>

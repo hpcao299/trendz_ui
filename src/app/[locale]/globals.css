@@ -40,6 +40,18 @@ body {
     background-image: url(/icons2.png);
 }
 
+.bg-facebook-icon {
+    background-repeat: no-repeat;
+    background-position: -414px -300px;
+    background-image: url(/icons2.png);
+}
+
+.bg-facebook-icon-primary {
+    background-repeat: no-repeat;
+    background-position: -414px -259px;
+    background-image: url(/icons2.png);
+}
+
 .paging-item {
     @apply mr-1;
 }
