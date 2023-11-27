@@ -1,11 +1,11 @@
 'use client';
 
+import { InputField } from '@/components/custom-fields';
 import config from '@/config';
-import Link from 'next-intl/link';
 import { NextPage } from 'next';
-import Image from 'next/image';
-import React from 'react';
 import { useTranslations } from 'next-intl';
+import Link from 'next-intl/link';
+import Image from 'next/image';
 
 const LoginPage: NextPage = () => {
     const t = useTranslations('Auth');
@@ -32,20 +32,8 @@ const LoginPage: NextPage = () => {
                     />
                 </div>
                 <form action="" className="w-full mb-2">
-                    <div className="w-full bg-[#fafafa] dark:bg-transparent dark:border-stroke border border-solid border-separator rounded-sm mb-1.5">
-                        <input
-                            type="text"
-                            className="text-sm pl-2 pb-1.5 pt-2 bg-transparent w-[calc(100%-8px)] outline-none"
-                            placeholder={t('email')}
-                        />
-                    </div>
-                    <div className="w-full bg-[#fafafa] dark:bg-transparent dark:border-stroke border border-solid border-separator rounded-sm mb-1.5">
-                        <input
-                            type="password"
-                            className="text-sm pl-2 pb-1.5 pt-2 bg-transparent w-[calc(100%-8px)] outline-none"
-                            placeholder={t('password')}
-                        />
-                    </div>
+                    <InputField name="email" type="email" placeholder={t('email')} />
+                    <InputField name="password" type="password" placeholder={t('password')} />
                     <button className="w-full mt-3 btn-sm btn-primary">{t('login')}</button>
                 </form>
                 <div className="flex items-center w-full mt-3">

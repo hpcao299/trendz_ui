@@ -1,11 +1,11 @@
 'use client';
 
+import { InputField } from '@/components/custom-fields';
 import config from '@/config';
 import { NextPage } from 'next';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 
 const SignupPage: NextPage = () => {
     const t = useTranslations('Auth');
@@ -46,34 +46,10 @@ const SignupPage: NextPage = () => {
                     <div className="flex-1 h-[1px] bg-separator dark:bg-darkSeparator"></div>
                 </div>
                 <form action="" className="w-full mb-7">
-                    <div className="w-full bg-[#fafafa] dark:bg-transparent dark:border-stroke border border-solid border-separator rounded-sm mb-1.5">
-                        <input
-                            type="text"
-                            className="text-sm pl-2 pb-1.5 pt-2 bg-transparent w-[calc(100%-8px)] outline-none"
-                            placeholder={t('email')}
-                        />
-                    </div>
-                    <div className="w-full bg-[#fafafa] dark:bg-transparent dark:border-stroke border border-solid border-separator rounded-sm mb-1.5">
-                        <input
-                            type="text"
-                            className="text-sm pl-2 pb-1.5 pt-2 bg-transparent w-[calc(100%-8px)] outline-none"
-                            placeholder={t('fullname')}
-                        />
-                    </div>
-                    <div className="w-full bg-[#fafafa] dark:bg-transparent dark:border-stroke border border-solid border-separator rounded-sm mb-1.5">
-                        <input
-                            type="text"
-                            className="text-sm pl-2 pb-1.5 pt-2 bg-transparent w-[calc(100%-8px)] outline-none"
-                            placeholder={t('username')}
-                        />
-                    </div>
-                    <div className="w-full bg-[#fafafa] dark:bg-transparent dark:border-stroke border border-solid border-separator rounded-sm mb-1.5">
-                        <input
-                            type="password"
-                            className="text-sm pl-2 pb-1.5 pt-2 bg-transparent w-[calc(100%-8px)] outline-none"
-                            placeholder={t('password')}
-                        />
-                    </div>
+                    <InputField name="email" type="email" placeholder={t('email')} />
+                    <InputField name="full_name" type="text" placeholder={t('fullname')} />
+                    <InputField name="username" type="text" placeholder={t('username')} />
+                    <InputField name="password" type="password" placeholder={t('password')} />
                     <div className="mb-2.5 mt-3.5 text-xs text-secondaryText text-center">
                         {t('signup-terms-desc')} <strong>{t('signup-terms')}</strong>
                     </div>

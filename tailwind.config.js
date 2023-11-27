@@ -25,6 +25,7 @@ module.exports = {
                 btnBackground: 'rgb(239, 239, 239)',
                 link: 'rgb(0, 55, 107)',
                 highlightBackground: 'rgb(38, 38, 38)',
+                focusStroke: 'rgb(168, 168, 168)',
 
                 darkBackground: '#262626',
                 darkSecondaryText: '#A8A8A8',
