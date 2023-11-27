@@ -12,7 +12,7 @@ const LoginPage: NextPage = () => {
 
     return (
         <>
-            <div className="w-[350px] border border-solid border-separator py-2.5 px-10 flex flex-col items-center h-max mb-2.5">
+            <div className="w-[350px] border border-solid border-separator dark:border-darkSeparator py-2.5 px-10 flex flex-col items-center h-max mb-2.5">
                 <div className="mb-14 mt-9">
                     <Image
                         src="/trendz_logo.png"
@@ -32,14 +32,14 @@ const LoginPage: NextPage = () => {
                     />
                 </div>
                 <form action="" className="w-full mb-2">
-                    <div className="w-full bg-[#fafafa] border border-solid border-separator rounded-sm mb-1.5">
+                    <div className="w-full bg-[#fafafa] dark:bg-transparent dark:border-stroke border border-solid border-separator rounded-sm mb-1.5">
                         <input
                             type="text"
                             className="text-sm pl-2 pb-1.5 pt-2 bg-transparent w-[calc(100%-8px)] outline-none"
                             placeholder={t('email')}
                         />
                     </div>
-                    <div className="w-full bg-[#fafafa] border border-solid border-separator rounded-sm mb-1.5">
+                    <div className="w-full bg-[#fafafa] dark:bg-transparent dark:border-stroke border border-solid border-separator rounded-sm mb-1.5">
                         <input
                             type="password"
                             className="text-sm pl-2 pb-1.5 pt-2 bg-transparent w-[calc(100%-8px)] outline-none"
@@ -55,15 +55,18 @@ const LoginPage: NextPage = () => {
                     </div>
                     <div className="flex-1 h-[1px] bg-separator dark:bg-darkSeparator"></div>
                 </div>
-                <button className="flex items-center bg-transparent outline-none text-[#385185] text-sm font-semibold mt-6 mb-5">
+                <button className="flex items-center bg-transparent outline-none text-[#385185] dark:text-[#5B84B1] text-sm font-semibold mt-6 mb-5">
                     <span className="inline-block w-4 h-4 mr-2 bg-facebook-icon-primary"></span>{' '}
                     {t('login-with-facebook')}
                 </button>
-                <Link href={config.routes.passwordReset} className="text-xs text-link mb-2.5">
+                <Link
+                    href={config.routes.passwordReset}
+                    className="text-xs text-link dark:text-primary mb-2.5"
+                >
                     {t('forgot-password')}
                 </Link>
             </div>
-            <div className="w-[350px] border border-solid border-separator flex justify-center items-center py-6">
+            <div className="w-[350px] border border-solid border-separator dark:border-darkSeparator flex justify-center items-center py-6">
                 <span className="text-sm">
                     {t('dont-have-an-account')}{' '}
                     <Link href={config.routes.signup} className="text-primary">

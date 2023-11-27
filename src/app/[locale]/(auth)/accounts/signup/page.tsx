@@ -12,7 +12,7 @@ const SignupPage: NextPage = () => {
 
     return (
         <>
-            <div className="w-[350px] border border-solid border-separator py-2.5 px-10 flex flex-col items-center h-max mb-2.5">
+            <div className="w-[350px] border border-solid border-separator dark:border-darkSeparator py-2.5 px-10 flex flex-col items-center h-max mb-2.5">
                 <div className="mb-6 mt-9">
                     <Image
                         src="/trendz_logo.png"
@@ -46,28 +46,28 @@ const SignupPage: NextPage = () => {
                     <div className="flex-1 h-[1px] bg-separator dark:bg-darkSeparator"></div>
                 </div>
                 <form action="" className="w-full mb-7">
-                    <div className="w-full bg-[#fafafa] border border-solid border-separator rounded-sm mb-1.5">
+                    <div className="w-full bg-[#fafafa] dark:bg-transparent dark:border-stroke border border-solid border-separator rounded-sm mb-1.5">
                         <input
                             type="text"
                             className="text-sm pl-2 pb-1.5 pt-2 bg-transparent w-[calc(100%-8px)] outline-none"
                             placeholder={t('email')}
                         />
                     </div>
-                    <div className="w-full bg-[#fafafa] border border-solid border-separator rounded-sm mb-1.5">
+                    <div className="w-full bg-[#fafafa] dark:bg-transparent dark:border-stroke border border-solid border-separator rounded-sm mb-1.5">
                         <input
                             type="text"
                             className="text-sm pl-2 pb-1.5 pt-2 bg-transparent w-[calc(100%-8px)] outline-none"
                             placeholder={t('fullname')}
                         />
                     </div>
-                    <div className="w-full bg-[#fafafa] border border-solid border-separator rounded-sm mb-1.5">
+                    <div className="w-full bg-[#fafafa] dark:bg-transparent dark:border-stroke border border-solid border-separator rounded-sm mb-1.5">
                         <input
                             type="text"
                             className="text-sm pl-2 pb-1.5 pt-2 bg-transparent w-[calc(100%-8px)] outline-none"
                             placeholder={t('username')}
                         />
                     </div>
-                    <div className="w-full bg-[#fafafa] border border-solid border-separator rounded-sm mb-1.5">
+                    <div className="w-full bg-[#fafafa] dark:bg-transparent dark:border-stroke border border-solid border-separator rounded-sm mb-1.5">
                         <input
                             type="password"
                             className="text-sm pl-2 pb-1.5 pt-2 bg-transparent w-[calc(100%-8px)] outline-none"
@@ -80,7 +80,7 @@ const SignupPage: NextPage = () => {
                     <button className="w-full mt-3 btn-sm btn-primary">{t('signup')}</button>
                 </form>
             </div>
-            <div className="w-[350px] border border-solid border-separator flex justify-center items-center py-6">
+            <div className="w-[350px] border border-solid border-separator dark:border-darkSeparator flex justify-center items-center py-6">
                 <span className="text-sm">
                     {t('have-an-account')}{' '}
                     <Link href={config.routes.login} className="text-primary">
