@@ -52,6 +52,18 @@ body {
     background-image: url(/icons2.png);
 }
 
+.bg-error-icon {
+    background-repeat: no-repeat;
+    background-position: -249px -333px;
+    background-image: url(/icons2.png);
+}
+
+.bg-valid-icon {
+    background-repeat: no-repeat;
+    background-position: -225px -333px;
+    background-image: url(/icons2.png);
+}
+
 .paging-item {
     @apply mr-1;
 }
@@ -74,4 +86,16 @@ input:disabled {
 
 .click-opacity {
     @apply active:opacity-50;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    @apply shadow-inputFieldAutoFill;
 }

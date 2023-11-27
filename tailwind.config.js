@@ -77,6 +77,7 @@ module.exports = {
             boxShadow: {
                 tooltip: 'rgba(0, 0, 0, 0.3) 0 2px 10px',
                 searchSidebar: '4px 0 24px rgba(0, 0, 0, .15)',
+                inputFieldAutoFill: '0 0 0 30px rgb(250, 250, 250) inset',
             },
             animation: {
                 'fade-in-tooltip': 'fadeIn .35s ease .8s',

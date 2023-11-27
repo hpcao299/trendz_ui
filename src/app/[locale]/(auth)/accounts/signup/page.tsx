@@ -2,13 +2,38 @@
 
 import { InputField } from '@/components/custom-fields';
 import config from '@/config';
+import constants from '@/constants';
 import { NextPage } from 'next';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+
+interface ISignupForm {
+    email: string;
+    fullname: string;
+    username: string;
+    password: string;
+}
+
+const defaultValues: ISignupForm = {
+    email: '',
+    password: '',
+    fullname: '',
+    username: '',
+};
 
 const SignupPage: NextPage = () => {
+    const {
+        control,
+        handleSubmit,
+        formState: { errors, isValid },
+    } = useForm<ISignupForm>({ defaultValues, mode: 'onBlur' });
     const t = useTranslations('Auth');
+
+    const onSubmit: SubmitHandler<ISignupForm> = data => {
+        console.log(data);
+    };
 
     return (
         <>
@@ -45,15 +70,78 @@ const SignupPage: NextPage = () => {
                     </div>
                     <div className="flex-1 h-[1px] bg-separator dark:bg-darkSeparator"></div>
                 </div>
-                <form action="" className="w-full mb-7">
-                    <InputField name="email" type="email" placeholder={t('email')} />
-                    <InputField name="full_name" type="text" placeholder={t('fullname')} />
-                    <InputField name="username" type="text" placeholder={t('username')} />
-                    <InputField name="password" type="password" placeholder={t('password')} />
+                <form onSubmit={handleSubmit(onSubmit)} className="w-full mb-7">
+                    <Controller
+                        name="email"
+                        control={control}
+                        rules={{
+                            required: true,
+                            pattern: constants.regExps.email,
+                        }}
+                        render={({ field }) => (
+                            <InputField
+                                type="email"
+                                error={Boolean(errors.email)}
+                                placeholder={t('email')}
+                                {...field}
+                            />
+                        )}
+                    />
+                    <Controller
+                        name="fullname"
+                        control={control}
+                        rules={{
+                            required: true,
+                        }}
+                        render={({ field }) => (
+                            <InputField
+                                type="text"
+                                error={Boolean(errors.fullname)}
+                                placeholder={t('fullname')}
+                                {...field}
+                            />
+                        )}
+                    />
+                    <Controller
+                        name="username"
+                        control={control}
+                        rules={{
+                            required: true,
+                        }}
+                        render={({ field }) => (
+                            <InputField
+                                type="text"
+                                error={Boolean(errors.username)}
+                                placeholder={t('username')}
+                                {...field}
+                            />
+                        )}
+                    />
+                    <Controller
+                        name="password"
+                        control={control}
+                        rules={{
+                            required: true,
+                            minLength: 6,
+                        }}
+                        render={({ field }) => (
+                            <InputField
+                                type="password"
+                                error={Boolean(errors.password)}
+                                placeholder={t('password')}
+                                {...field}
+                            />
+                        )}
+                    />
                     <div className="mb-2.5 mt-3.5 text-xs text-secondaryText text-center">
                         {t('signup-terms-desc')} <strong>{t('signup-terms')}</strong>
                     </div>
-                    <button className="w-full mt-3 btn-sm btn-primary">{t('signup')}</button>
+                    <button
+                        disabled={!isValid}
+                        className="w-full mt-3 btn-sm btn-primary disabled:opacity-70"
+                    >
+                        {t('signup')}
+                    </button>
                 </form>
             </div>
             <div className="w-[350px] border border-solid border-separator dark:border-darkSeparator flex justify-center items-center py-6">

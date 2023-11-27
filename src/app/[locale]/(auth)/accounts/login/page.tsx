@@ -2,13 +2,34 @@
 
 import { InputField } from '@/components/custom-fields';
 import config from '@/config';
+import constants from '@/constants';
 import { NextPage } from 'next';
 import { useTranslations } from 'next-intl';
 import Link from 'next-intl/link';
 import Image from 'next/image';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+
+interface ILoginForm {
+    email: string;
+    password: string;
+}
+
+const defaultValues: ILoginForm = {
+    email: '',
+    password: '',
+};
 
 const LoginPage: NextPage = () => {
+    const {
+        control,
+        handleSubmit,
+        formState: { isValid },
+    } = useForm<ILoginForm>({ defaultValues });
     const t = useTranslations('Auth');
+
+    const onSubmit: SubmitHandler<ILoginForm> = data => {
+        console.log(data);
+    };
 
     return (
         <>
@@ -31,10 +52,36 @@ const LoginPage: NextPage = () => {
                         className="hidden w-auto h-8 px-3 dark:inline-block"
                     />
                 </div>
-                <form action="" className="w-full mb-2">
-                    <InputField name="email" type="email" placeholder={t('email')} />
-                    <InputField name="password" type="password" placeholder={t('password')} />
-                    <button className="w-full mt-3 btn-sm btn-primary">{t('login')}</button>
+                <form onSubmit={handleSubmit(onSubmit)} className="w-full mb-2">
+                    <Controller
+                        name="email"
+                        control={control}
+                        rules={{
+                            required: true,
+                            pattern: constants.regExps.email,
+                        }}
+                        render={({ field }) => (
+                            <InputField type="email" placeholder={t('email')} {...field} />
+                        )}
+                    />
+                    <Controller
+                        name="password"
+                        control={control}
+                        rules={{
+                            required: true,
+                            minLength: 6,
+                        }}
+                        render={({ field }) => (
+                            <InputField type="password" placeholder={t('password')} {...field} />
+                        )}
+                    />
+
+                    <button
+                        disabled={!isValid}
+                        className="w-full mt-3 btn-sm btn-primary disabled:opacity-70"
+                    >
+                        {t('login')}
+                    </button>
                 </form>
                 <div className="flex items-center w-full mt-3">
                     <div className="flex-1 h-[1px] bg-separator dark:bg-darkSeparator"></div>
