@@ -74,6 +74,9 @@ module.exports = {
                 menusContainer: 'calc(266px * 2)',
                 'media-info': '335px',
             },
+            height: {
+                'desktop-nav': '60px',
+            },
             boxShadow: {
                 tooltip: 'rgba(0, 0, 0, 0.3) 0 2px 10px',
                 searchSidebar: '4px 0 24px rgba(0, 0, 0, .15)',

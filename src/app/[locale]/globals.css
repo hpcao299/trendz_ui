@@ -64,6 +64,12 @@ body {
     background-image: url(/icons2.png);
 }
 
+.bg-lock-icon {
+    background-repeat: no-repeat;
+    background-position: -130px 0;
+    background-image: url(/icons2.png);
+}
+
 .paging-item {
     @apply mr-1;
 }

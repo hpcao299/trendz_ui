@@ -14,7 +14,7 @@ const CopyrightFooter: React.FC = () => {
     };
 
     return (
-        <footer className="flex items-center justify-center pb-12 text-xs text-secondaryText">
+        <footer className="flex items-center justify-center pb-12 text-xs text-secondaryText dark:text-darkSecondaryText">
             <div className="relative inline-block overflow-hidden w-max">
                 <select
                     className="w-full bg-transparent outline-none"
