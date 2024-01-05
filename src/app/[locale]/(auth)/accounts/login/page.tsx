@@ -72,10 +72,14 @@ const LoginPage: NextPage = () => {
                             minLength: 6,
                         }}
                         render={({ field }) => (
-                            <InputField type="password" placeholder={t('password')} {...field} />
+                            <InputField
+                                type="password"
+                                placeholder={t('password')}
+                                showHidden
+                                {...field}
+                            />
                         )}
                     />
-
                     <button
                         disabled={!isValid}
                         className="w-full mt-3 btn-sm btn-primary disabled:opacity-70"

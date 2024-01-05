@@ -1,6 +1,7 @@
 'use client';
 
 import { PostActions, PostCommentInput, PostsList } from '@/components';
+import { useLayoutStore } from '@/stores';
 import { useAnimationControls } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
@@ -12,6 +13,7 @@ const CopyrightFooter = dynamic(() => import('@/layouts/CopyrightFooter'), { ssr
 
 const PostDetailPage = () => {
     const t = useTranslations('Post');
+    const showModal = useLayoutStore(state => state.showModal);
     const [isLiked, setIsLiked] = useState<boolean>(false);
     const [commentText, setCommentText] = useState<string>('');
     const controls = useAnimationControls();
@@ -43,9 +45,9 @@ const PostDetailPage = () => {
                                 {t('following')}
                             </div>
                         </div>
-                        <div className="ml-2" role="button">
+                        <button className="ml-2" onClick={() => showModal('Post Actions')}>
                             <IoEllipsisHorizontal size={18} />
-                        </div>
+                        </button>
                     </div>
                     <ul className="flex flex-col flex-1 px-4 pb-4">
                         <li className="flex py-3">

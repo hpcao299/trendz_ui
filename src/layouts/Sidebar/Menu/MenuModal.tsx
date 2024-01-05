@@ -114,13 +114,12 @@ const MenuModal: React.FC<MenuModalProps> = ({ open, handleCloseMenu }) => {
                 </div>
                 <div className="w-1/2 appearance-menu">
                     <div className="flex items-center p-4 border-b border-solid border-separator dark:border-stroke">
-                        <div
+                        <button
                             className="text-[rgb(199,199,199)] w-6 h-6 flex items-center"
-                            role="button"
                             onClick={() => handleToggleMenu(mainMenuHeight)}
                         >
                             <IoChevronBack size={14} />
-                        </div>
+                        </button>
                         <div className="flex-1 text-base font-semibold">{t('appearance')}</div>
                         {darkMode ? <IoMoonOutline size={18} /> : <IoSunnyOutline size={18} />}
                     </div>

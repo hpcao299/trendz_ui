@@ -55,13 +55,12 @@ const ProfilePage: NextPage<ProfilePageProps> = ({ params }) => {
                                     <IoChevronDown />
                                 </button>
                             </div>
-                            <div
+                            <button
                                 className="p-2 ml-1 click-opacity"
-                                role="button"
                                 onClick={() => showModal('User Settings')}
                             >
                                 <IoSettingsOutline size={24} />
-                            </div>
+                            </button>
                         </div>
                         <ul className="flex items-center gap-10 mb-5 text-base">
                             <li>
@@ -85,12 +84,9 @@ const ProfilePage: NextPage<ProfilePageProps> = ({ params }) => {
                         <div className="bg-photo h-[62px] w-[62px]"></div>
                         <div className="mt-5 mb-4 text-3xl font-extrabold">{t('share-photo')}</div>
                         <div className="mb-5 text-sm">{t('share-photo-desc')}</div>
-                        <div
-                            role="button"
-                            className="text-sm font-semibold text-primary hover:text-black dark:hover:text-darkLink"
-                        >
+                        <button className="text-sm font-semibold text-primary hover:text-black dark:hover:text-darkLink">
                             {t('share-photo-link')}
-                        </div>
+                        </button>
                     </div>
                     {/* <div className="mt-1 mb-6">
                         <PostsList />

@@ -54,9 +54,9 @@ const PostModal: React.FC = () => {
                             <div className="text-sm font-semibold">t_thuy.1607</div>
                         </Link>
                     </div>
-                    <div role="button" className="p-2 mr-2">
+                    <button className="p-2 mr-2">
                         <IoEllipsisHorizontal size={20} />
-                    </div>
+                    </button>
                 </header>
                 <ul className="flex-1 p-4 overflow-y-scroll min-h-[232px]">
                     <li className="pb-2 pr-4 pt-1.5">
@@ -124,22 +124,19 @@ const PostModal: React.FC = () => {
                                                 <span className="mr-3 font-semibold" role="button">
                                                     {t('reply-comment')}
                                                 </span>
-                                                <div
+                                                {/* <div
                                                     role="button"
                                                     className="absolute hidden p-2 -translate-y-1/2 top-1/2 -right-10 group-hover:block"
                                                 >
                                                     <IoEllipsisHorizontal size={18} />
-                                                </div>
+                                                </div> */}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div
-                                    className="mt-2 h-fit text-[rgb(38,38,38)] hover:opacity-50"
-                                    role="button"
-                                >
+                                <button className="mt-2 h-fit text-[rgb(38,38,38)] hover:opacity-50">
                                     <IoHeartOutline size={14} />
-                                </div>
+                                </button>
                             </div>
                             <div className="mt-4 ml-[54px]">
                                 <button className="flex items-center">

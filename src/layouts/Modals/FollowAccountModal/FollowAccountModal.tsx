@@ -25,7 +25,7 @@ const FollowAccountModal: React.FC = () => {
                 <div className="mt-2 text-sm font-semibold">t_thuy.1607</div>
             </div>
             <ul>
-                <li
+                {/* <li
                     className="flex items-center justify-between p-4 text-sm transition-colors duration-100 hover:bg-lightHover dark:hover:bg-darkLightHover"
                     role="button"
                 >
@@ -37,7 +37,7 @@ const FollowAccountModal: React.FC = () => {
                     role="button"
                 >
                     <span>{t('mute')}</span>
-                </li>
+                </li> */}
                 <li
                     className="flex items-center justify-between p-4 text-sm transition-colors duration-100 hover:bg-lightHover dark:hover:bg-darkLightHover"
                     role="button"

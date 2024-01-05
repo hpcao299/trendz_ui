@@ -58,11 +58,10 @@ const LanguagePreferences = () => {
 
 const LanguageOption: React.FC<LanguageOptionProps> = ({ title, isActive, onClick }) => {
     return (
-        <div
-            className={`flex items-center justify-between h-12 px-4 py-3 text-base transition-colors duration-100 rounded-lg hover:bg-lightHover dark:hover:bg-darkLightHover ${
+        <button
+            className={`flex items-center justify-between h-12 px-4 py-3 text-base transition-colors duration-100 rounded-lg hover:bg-lightHover dark:hover:bg-darkLightHover w-full ${
                 !isActive && 'text-secondaryText dark:text-darkSecondaryText'
             }`}
-            role="button"
             onClick={onClick}
         >
             <span>{title}</span>
@@ -71,7 +70,7 @@ const LanguageOption: React.FC<LanguageOptionProps> = ({ title, isActive, onClic
                     <IoCheckmarkCircle size={28} className="absolute -top-[3px] -left-[3px]" />
                 )}
             </div>
-        </div>
+        </button>
     );
 };
 

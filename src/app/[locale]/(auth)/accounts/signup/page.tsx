@@ -129,6 +129,7 @@ const SignupPage: NextPage = () => {
                                 type="password"
                                 error={Boolean(errors.password)}
                                 placeholder={t('password')}
+                                showHidden
                                 {...field}
                             />
                         )}

@@ -69,12 +69,9 @@ const SearchSidebar: React.FC = () => {
                     <div className="pt-3 border-t border-solid border-separator dark:border-darkSeparator">
                         <div className="flex items-center justify-between pt-1 mx-6 mb-2">
                             <span className="text-base font-semibold">{t('recent')}</span>
-                            <div
-                                role="button"
-                                className="text-sm font-semibold text-primary hover:text-black dark:hover:text-darkLink"
-                            >
+                            <button className="text-sm font-semibold text-primary hover:text-black dark:hover:text-darkLink">
                                 {t('clear-all')}
-                            </div>
+                            </button>
                         </div>
                         {Array.from({ length: 20 }).map((a, i) => (
                             <Link key={i} href="/">
@@ -92,12 +89,9 @@ const SearchSidebar: React.FC = () => {
                                             Thanh Thuý
                                         </div>
                                     </div>
-                                    <div
-                                        className="flex items-center justify-center p-2 ml-3"
-                                        role="button"
-                                    >
+                                    <button className="flex items-center justify-center p-2 ml-3">
                                         <IoCloseOutline size={24} />
-                                    </div>
+                                    </button>
                                 </div>
                             </Link>
                         ))}

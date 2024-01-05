@@ -107,13 +107,9 @@ const PostItem: React.FC = () => {
                         </span>
                     </div>
                 </div>
-                <div
-                    role="button"
-                    onClick={() => showModal('Post Actions')}
-                    className="p-1 click-opacity"
-                >
+                <button onClick={() => showModal('Post Actions')} className="p-1 click-opacity">
                     <IoEllipsisHorizontal size={20} />
-                </div>
+                </button>
             </div>
             <div
                 onClick={handleImageClick}

@@ -45,12 +45,11 @@ const AppearanceOptionItem: React.FC<AppearanceOptionItem> = ({
     title,
 }) => {
     return (
-        <div
+        <button
             className={classNames(
-                'flex items-center justify-between h-12 px-4 py-3 text-base transition-colors duration-100 rounded-lg hover:bg-lightHover dark:hover:bg-darkLightHover',
+                'flex items-center justify-between h-12 px-4 py-3 text-base transition-colors duration-100 rounded-lg hover:bg-lightHover dark:hover:bg-darkLightHover w-full',
                 { 'text-secondaryText dark:text-darkSecondaryText': !isActive },
             )}
-            role="button"
             onClick={onClick}
         >
             <div className="flex items-center">
@@ -63,7 +62,7 @@ const AppearanceOptionItem: React.FC<AppearanceOptionItem> = ({
                     { 'bg-primary': isActive },
                 )}
             ></div>
-        </div>
+        </button>
     );
 };
 
