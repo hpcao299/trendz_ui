@@ -34,7 +34,7 @@ const PostActions: React.FC<PostActionsProps> = ({ isLiked, handleToggleLiked, c
             <div className="flex items-center">
                 <button
                     className={classNames('p-2', {
-                        'text-red': isLiked,
+                        'text-primaryRed': isLiked,
                         'hover:text-grey': !isLiked,
                     })}
                     onClick={handleToggleLiked}

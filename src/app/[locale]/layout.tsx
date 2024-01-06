@@ -1,4 +1,5 @@
 import { LayoutTheme } from '@/layouts';
+import { SessionProvider } from '@/layouts/SessionProvider';
 import { locales } from '@/navigation';
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
@@ -38,14 +39,16 @@ export default async function RootLayout({ children, modal, params: { locale } }
 
     return (
         <html lang={locale}>
-            <NextIntlClientProvider locale={locale} messages={messages.default}>
-                <LayoutTheme />
-                <body>
-                    {children}
-                    <Modals />
-                    {modal}
-                </body>
-            </NextIntlClientProvider>
+            <SessionProvider>
+                <NextIntlClientProvider locale={locale} messages={messages.default}>
+                    <LayoutTheme />
+                    <body>
+                        {children}
+                        <Modals />
+                        {modal}
+                    </body>
+                </NextIntlClientProvider>
+            </SessionProvider>
         </html>
     );
 }

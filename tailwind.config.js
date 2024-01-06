@@ -18,7 +18,7 @@ module.exports = {
                 lightHover: 'rgb(0,0,0,.05)',
                 secondaryText: 'rgb(115,115,115)',
                 grey: 'rgb(142,142,142)',
-                red: 'rgb(255, 48, 64)',
+                primaryRed: 'rgb(255, 48, 64)',
                 error: 'rgb(237, 73, 86)',
                 lightWhite: 'rgba(255,255,255,.94)',
                 btnHover: 'rgb(219, 219, 219)',

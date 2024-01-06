@@ -35,7 +35,7 @@ const ModalActionsList: React.FC<ModalActionsList> = ({
                 <button
                     className={classNames(
                         'flex items-center justify-center w-full first:rounded-tl-xl first:rounded-tr-xl last:rounded-bl-xl last:rounded-br-xl text-sm min-h-[48px] py-1 px-2 select-none border-t border-solid border-separator dark:border-darkElevatedSeparator first:border-[0px]',
-                        { 'text-red font-semibold': item.color === 'warn' },
+                        { 'text-primaryRed font-semibold': item.color === 'warn' },
                     )}
                     onClick={() => item.onClick && item.onClick()}
                     key={i}
@@ -47,7 +47,7 @@ const ModalActionsList: React.FC<ModalActionsList> = ({
                 <button
                     className={classNames(
                         'flex items-center justify-center w-full first:rounded-tl-xl first:rounded-tr-xl last:rounded-bl-xl last:rounded-br-xl text-sm min-h-[48px] py-1 px-2 select-none border-t border-solid border-separator dark:border-darkElevatedSeparator first:border-[0px]',
-                        { 'text-red font-semibold': warnCancelAction },
+                        { 'text-primaryRed font-semibold': warnCancelAction },
                     )}
                     onClick={handleClose}
                 >

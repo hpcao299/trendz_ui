@@ -5,8 +5,9 @@ import config from '@/config';
 import { useLayoutStore } from '@/stores';
 import classNames from 'classnames';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
+import { usePathname } from 'next-intl/client';
 import Link from 'next-intl/link';
+import Image from 'next/image';
 import React, { memo, useEffect, useMemo } from 'react';
 import {
     IoAddCircle,
@@ -18,7 +19,6 @@ import {
     IoSearch,
     IoSearchOutline,
 } from 'react-icons/io5';
-import { usePathname } from 'next-intl/client';
 
 const SidebarLinks: React.FC = () => {
     const t = useTranslations('Sidebar');

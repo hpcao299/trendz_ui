@@ -1,6 +1,7 @@
 import config from '@/config';
 import { useThemeStore } from '@/stores';
 import { motion, useCycle } from 'framer-motion';
+import { signOut } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 import Link from 'next-intl/link';
 import React, { useEffect, useRef } from 'react';
@@ -108,7 +109,10 @@ const MenuModal: React.FC<MenuModalProps> = ({ open, handleCloseMenu }) => {
                         <span className="ml-3">{t('problem')}</span>
                     </div>
                     <div className="h-[6px] bg-[rgba(219,219,219,.3)] dark:bg-[rgba(85,85,85,.3)] my-2 -mx-2"></div>
-                    <div className="flex items-center p-4 text-sm transition-opacity duration-100 rounded-lg cursor-pointer hover:bg-lightHover dark:hover:bg-darkLightHover ease-hover">
+                    <div
+                        className="flex items-center p-4 text-sm transition-opacity duration-100 rounded-lg cursor-pointer hover:bg-lightHover dark:hover:bg-darkLightHover ease-hover"
+                        onClick={() => signOut()}
+                    >
                         <span>{t('logout')}</span>
                     </div>
                 </div>
